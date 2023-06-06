@@ -8,7 +8,29 @@ import { lastInscriptionDataAtom } from "../lib/store";
 
 import { InscriptionResponse, ListResponse } from "../lib/types";
 import InscriptionCard from "./InscriptionCard";
+import Table, {TableColumn} from "@/components/table/Table";
+import moment from "moment";
 
+const columns: TableColumn<InscriptionResponse>[] = [
+    {
+        name: 'Inscritions',
+        sortable: false,
+        key: 'address',
+        render: (data) => <>Inscritions#{data?.number}</>,
+    },
+    {
+        name: 'Transfer',
+        sortable: false,
+        key: 'timestamp',
+        render: (data) => <>{data?.timestamp}</>,
+    },
+    {
+        name: 'Time',
+        sortable: false,
+        key: 'timestamp',
+        render: (data) => <>{moment(data?.timestamp).format('YYYY.MM.DD HH:mm:ss')}</>,
+    },
+]
 const GalleryPreview = () => {
   const setLastInscriptionData = useSetAtom(lastInscriptionDataAtom);
 
@@ -32,10 +54,17 @@ const GalleryPreview = () => {
 
   return (
     <>
-      <div className="grid grid-cols-3 md:grid-cols-4 gap-4">
-        {previews.slice(0, 12).map((i, index) => (
-          <InscriptionCard key={index} inscription={i} />
-        ))}
+      <div>
+        {/*{previews.slice(0, 12).map((i, index) => (*/}
+        {/*  <InscriptionCard key={index} inscription={i} />*/}
+        {/*))}*/}
+          <div>
+              {
+                  previews && <Table data={previews} columns={columns} />
+              }
+          </div>
+
+
       </div>
       {/* todo: re-add figma link to full feed */}
       {/* <div className="my-4 text-center underline">
