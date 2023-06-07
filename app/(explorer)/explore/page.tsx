@@ -216,65 +216,66 @@ const Page = () => {
             <div className="w-full text-xs uppercase">
               <div className="space-y-2">
                 <div className="flex justify-between">
-                  <div className="uppercase py-1 flex gap-x-[10px]">
-                    {[...fSelected].map((item) => {
-                      return (
-                        <FilterTag
-                          key={item}
-                          text={item}
-                          onClose={() => {
-                            toggle('f', item)
-                          }}
-                        />
-                      )
-                    })}
-                    {[...rSelected].map((item) => {
-                      return (
-                        <FilterTag
-                          key={item}
-                          text={item}
-                          onClose={() => {
-                            toggle('r', item)
-                          }}
-                        />
-                      )
-                    })}
-                    {(dStart || dEnd) && (
-                      <FilterTag
-                        text={`${dStart || '?'} - ${dEnd || '?'}`}
-                        onClose={() => {
-                          updateRange('d', '', '')
-                        }}
-                      />
-                    )}
-                    {(nStart || nEnd) && (
-                      <FilterTag
-                        text={`number: ${nStart || '?'} - ${nEnd || '?'}`}
-                        onClose={() => {
-                          updateRange('n', '', '')
-                        }}
-                      />
-                    )}
-                    {(hStart || hEnd) && (
-                      <FilterTag
-                        text={`Inscription height: ${hStart || '?'} - ${hEnd || '?'}`}
-                        onClose={() => {
-                          updateRange('h', '', '')
-                        }}
-                      />
-                    )}
-                    {(cStart || cEnd) && (
-                      <FilterTag
-                        text={`Coinbase height: ${cStart || '?'} - ${cEnd || '?'}`}
-                        onClose={() => {
-                          updateRange('c', '', '')
-                        }}
-                      />
-                    )}
-                  </div>
+                  <div />
                   <Sort sortKey={sortKey} updateSort={updateSort} />
                 </div>
                 <hr className="border-dashed border-neutral-300" />
+                <div className="uppercase flex gap-x-[10px]">
+                  {[...fSelected].map((item) => {
+                    return (
+                      <FilterTag
+                        key={item}
+                        text={item}
+                        onClose={() => {
+                          toggle('f', item)
+                        }}
+                      />
+                    )
+                  })}
+                  {[...rSelected].map((item) => {
+                    return (
+                      <FilterTag
+                        key={item}
+                        text={item}
+                        onClose={() => {
+                          toggle('r', item)
+                        }}
+                      />
+                    )
+                  })}
+                  {(dStart || dEnd) && (
+                    <FilterTag
+                      text={`${dStart || '?'} - ${dEnd || '?'}`}
+                      onClose={() => {
+                        updateRange('d', '', '')
+                      }}
+                    />
+                  )}
+                  {(nStart || nEnd) && (
+                    <FilterTag
+                      text={`number: ${nStart || '?'} - ${nEnd || '?'}`}
+                      onClose={() => {
+                        updateRange('n', '', '')
+                      }}
+                    />
+                  )}
+                  {(hStart || hEnd) && (
+                    <FilterTag
+                      text={`Inscription height: ${hStart || '?'} - ${hEnd || '?'}`}
+                      onClose={() => {
+                        updateRange('h', '', '')
+                      }}
+                    />
+                  )}
+                  {(cStart || cEnd) && (
+                    <FilterTag
+                      text={`Coinbase height: ${cStart || '?'} - ${cEnd || '?'}`}
+                      onClose={() => {
+                        updateRange('c', '', '')
+                      }}
+                    />
+                  )}
+                </div>
               </div>
             </div>
             {/* IMAGES */}
