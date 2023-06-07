@@ -4,6 +4,15 @@ const nextConfig = {
     appDir: true,
   },
 
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'api.hiro.so',
+      },
+    ],
+  },
+
   headers: async () => {
     return [
       {
