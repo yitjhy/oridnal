@@ -17,36 +17,33 @@ const InscriptionCard = ({ inscription, light = false }: { inscription?: Inscrip
             light && 'border'
           )}
         >
+          {/* placeholder */}
           #123
         </div>
       </div>
     )
 
   return (
-    <CardWrapper href={`/inscription/${inscription.id}`}>
-      <div className="w-full aspect-square overflow-hidden">
+    <Link
+      href={`/inscription/${inscription.id}`}
+      className="border sm:p-2 md:p-3 lg:p-5  space-y-2 md:space-y-3 lg:space-y-5"
+    >
+      <div className="w-full  aspect-square overflow-hidden">
         <InscriptionRender inscription={inscription} />
       </div>
-      <Motion initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.2 }}>
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.2 }}
+        className={cn(
+          'hidden sm:inline-block text-sm  px-1 md:px-2 md:py-1 bg-black text-white',
+          light && 'bg-white text-neutral-300 border'
+        )}
+      >
         #{inscription.number}
-      </Motion>
-    </CardWrapper>
+      </motion.div>
+    </Link>
   )
 }
 
 export default InscriptionCard
-
-const CardWrapper = styled(Link)`
-  width: 256px;
-  height: 300px;
-  border: 1px solid #b9b9b9;
-  padding:10px;
-`
-
-const Motion = styled(motion.div)`
-  margin-top: 16px;
-  margin-bottom: 16px;
-  color: #4f4f4f;
-  font-size: 18px;
-  line-height: 24px;
-`
