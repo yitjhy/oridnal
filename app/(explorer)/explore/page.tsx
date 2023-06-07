@@ -1,29 +1,27 @@
-"use client";
+'use client'
 
-import { usePathname } from "next/navigation";
-import { useUpdate } from "react-use";
+import { usePathname } from 'next/navigation'
+import { useUpdate } from 'react-use'
 
-import DateFilter from "../../../components/DateFilter";
-import Filter from "../../../components/Filter";
-import Footer from "../../../components/Footer";
-import GalleryFull, {
-  V1InscriptionsOptions,
-} from "../../../components/GalleryFull";
-import Header from "../../../components/Header";
-import RangeFilter from "../../../components/RangeFilter";
+import DateFilter from '../../../components/DateFilter'
+import Filter from '../../../components/Filter'
+import Footer from '../../../components/Footer'
+import GalleryFull, { V1InscriptionsOptions } from '../../../components/GalleryFull'
+import Header from '../../../components/Header'
+import RangeFilter from '../../../components/RangeFilter'
 
-import Sort, { sortOptions } from "../../../components/Sort";
-import { useHasMounted } from "../../../lib/hooks";
+import Sort, { sortOptions } from '../../../components/Sort'
+import { useHasMounted } from '@/lib/hooks'
 
-const fParams = ["image", "video", "audio", "text", "binary"];
+const fParams = ['image', 'video', 'audio', 'text', 'binary']
 const rParams = [
-  ["common", "Any sat that is not the first sat of its block"],
-  ["uncommon", "The first sat of each block"],
-  ["rare", "The first sat of each difficulty adjustment period"],
-  ["epic", "The first sat of each halving period"],
-  ["legendary", "The first sat of each cycle"],
-  ["mythic", "The first sat of the genesis block"],
-];
+  ['common', 'Any sat that is not the first sat of its block'],
+  ['uncommon', 'The first sat of each block'],
+  ['rare', 'The first sat of each difficulty adjustment period'],
+  ['epic', 'The first sat of each halving period'],
+  ['legendary', 'The first sat of each cycle'],
+  ['mythic', 'The first sat of the genesis block'],
+]
 
 // todo: usecallback etc. for better performance?
 
@@ -46,85 +44,76 @@ const rParams = [
 // st: sat ordinal end
 
 const Page = () => {
-  const hasMounted = useHasMounted();
-  const update = useUpdate();
-  const pathname = usePathname();
+  const hasMounted = useHasMounted()
+  const update = useUpdate()
+  const pathname = usePathname()
 
-  if (!hasMounted) return null; // todo: fix this?
+  if (!hasMounted) return null // todo: fix this?
 
-  const url = new URL(window.location.href);
-  const searchParams = new URLSearchParams(url.search); // useSearchParams() doesn't work here when manually useUpdating
+  const url = new URL(window.location.href)
+  const searchParams = new URLSearchParams(url.search) // useSearchParams() doesn't work here when manually useUpdating
 
   // basic parameters
-  const sort = searchParams.get("s") ?? "genesis_block_height"; // genesis_block_height, rarity
-  const order = searchParams.get("o") ?? "desc"; // asc, desc
-  const sortKey = `${sort}-${order}` as keyof typeof sortOptions;
-  const page = parseInt(searchParams.get("p") ?? "0");
+  const sort = searchParams.get('s') ?? 'genesis_block_height' // genesis_block_height, rarity
+  const order = searchParams.get('o') ?? 'desc' // asc, desc
+  const sortKey = `${sort}-${order}` as keyof typeof sortOptions
+  const page = parseInt(searchParams.get('p') ?? '0')
 
   // array filter parameters
-  const fSelected = new Set(searchParams.getAll("f"));
-  const rSelected = new Set(searchParams.getAll("r"));
+  const fSelected = new Set(searchParams.getAll('f'))
+  const rSelected = new Set(searchParams.getAll('r'))
 
   // range filter parameters
-  const dStart = searchParams.get("df");
-  const dEnd = searchParams.get("dt");
-  const cStart = searchParams.get("cf");
-  const cEnd = searchParams.get("ct");
-  const nStart = searchParams.get("nf");
-  const nEnd = searchParams.get("nt");
-  const hStart = searchParams.get("hf");
-  const hEnd = searchParams.get("ht");
+  const dStart = searchParams.get('df')
+  const dEnd = searchParams.get('dt')
+  const cStart = searchParams.get('cf')
+  const cEnd = searchParams.get('ct')
+  const nStart = searchParams.get('nf')
+  const nEnd = searchParams.get('nt')
+  const hStart = searchParams.get('hf')
+  const hEnd = searchParams.get('ht')
 
   // todo: add all other filters
-  const arrayCount = fSelected.size + rSelected.size;
-  const paramsCount = [
-    dStart,
-    dEnd,
-    cStart,
-    cEnd,
-    nStart,
-    nEnd,
-    hStart,
-    hEnd,
-  ].filter(Boolean).length; // todo: rather count each range param as 1 filter max?
-  const filterCount = arrayCount + paramsCount;
+  const arrayCount = fSelected.size + rSelected.size
+  const paramsCount = [dStart, dEnd, cStart, cEnd, nStart, nEnd, hStart, hEnd].filter(Boolean).length // todo: rather count each range param as 1 filter max?
+  const filterCount = arrayCount + paramsCount
 
   function toggle(key: string, type: string) {
-    const set = new Set(searchParams.getAll(key));
-    set.has(type) ? set.delete(type) : set.add(type); // toggle
-    searchParams.delete(key);
-    set.forEach((value) => searchParams.append(key, value));
-    searchParams.delete("p"); // changing filters resets page to 0
-    window.history.pushState({}, "", `${pathname}?${searchParams.toString()}`);
-    update(); // force re-render
+    const set = new Set(searchParams.getAll(key))
+    set.has(type) ? set.delete(type) : set.add(type) // toggle
+    searchParams.delete(key)
+    set.forEach((value) => searchParams.append(key, value))
+    searchParams.delete('p') // changing filters resets page to 0
+    window.history.pushState({}, '', `${pathname}?${searchParams.toString()}`)
+    update() // force re-render
   }
 
   function updateSort(value: string) {
-    const [s, o] = value.split("-");
-    searchParams.set("s", s);
-    searchParams.set("o", o);
-    window.history.pushState({}, "", `${pathname}?${searchParams.toString()}`);
-    update(); // force re-render
+    const [s, o] = value.split('-')
+    searchParams.set('s', s)
+    searchParams.set('o', o)
+    window.history.pushState({}, '', `${pathname}?${searchParams.toString()}`)
+    update() // force re-render
   }
 
   function updateRange(key: string, start: string | null, end: string | null) {
-    searchParams.delete(`${key}f`);
-    searchParams.delete(`${key}t`);
-    if (start) searchParams.set(`${key}f`, start);
-    if (end) searchParams.set(`${key}t`, end);
-    window.history.pushState({}, "", `${pathname}?${searchParams.toString()}`);
-    update(); // force re-render
+    searchParams.delete(`${key}f`)
+    searchParams.delete(`${key}t`)
+    if (start) searchParams.set(`${key}f`, start)
+    if (end) searchParams.set(`${key}t`, end)
+    window.history.pushState({}, '', `${pathname}?${searchParams.toString()}`)
+    update() // force re-render
   }
 
   function updatePage(offset: number) {
-    searchParams.set("p", `${page + offset}`);
-    window.history.pushState({}, "", `${pathname}?${searchParams.toString()}`);
-    update(); // force re-render
+    searchParams.set('p', `${page + offset}`)
+    window.history.pushState({}, '', `${pathname}?${searchParams.toString()}`)
+    update() // force re-render
   }
 
   function clear() {
-    window.history.pushState({}, "", pathname);
-    update(); // force re-render
+    window.history.pushState({}, '', pathname)
+    update() // force re-render
   }
 
   // yep, this is messy
@@ -141,13 +130,13 @@ const Page = () => {
             Clear Filters ({filterCount})
           </button>
         </div>
-      );
+      )
     return (
       <div>
         <p>¯\_(ツ)_/¯</p>
         <p className="uppercase">No results</p>
       </div>
-    );
+    )
   }
 
   const apiOptions = {
@@ -167,7 +156,7 @@ const Page = () => {
     to_genesis_timestamp: dEnd ? Date.parse(dEnd) : null,
     from_sat_coinbase_height: cStart ? parseInt(cStart) : null,
     to_sat_coinbase_height: cEnd ? parseInt(cEnd) : null,
-  } as V1InscriptionsOptions;
+  } as V1InscriptionsOptions
 
   return (
     <>
@@ -180,60 +169,42 @@ const Page = () => {
               <div className="py-1 uppercase">Filter</div>
               <hr className="border-dashed border-neutral-300" />
             </div>
-            <div className="mt-5"></div>
+            <div className="mt-5" />
             <Filter
               defaultOpen={true}
               name="File Types"
               options={fParams}
-              onClick={(t) => toggle("f", t)}
+              onClick={(t) => toggle('f', t)}
               selected={fSelected}
             />
             <hr className="my-3 border-dashed border-neutral-200" />
-            <Filter
-              name="Rarity"
-              options={rParams}
-              onClick={(t) => toggle("r", t)}
-              selected={rSelected}
-            />
+            <Filter name="Rarity" options={rParams} onClick={(t) => toggle('r', t)} selected={rSelected} />
             <hr className="my-3 border-dashed border-neutral-200" />
             {/* todo: clear date filters unapplied state when clear is called (e.g. via key prop) */}
-            <DateFilter
-              name="Inscription Date"
-              start={dStart}
-              end={dEnd}
-              onApply={(f, t) => updateRange("d", f, t)}
-            />
+            <DateFilter name="Inscription Date" start={dStart} end={dEnd} onApply={(f, t) => updateRange('d', f, t)} />
             <hr className="my-3 border-dashed border-neutral-200" />
             <RangeFilter
               name="Inscription Number"
               start={nStart}
               end={nEnd}
-              onApply={(f, t) => updateRange("n", f, t)}
+              onApply={(f, t) => updateRange('n', f, t)}
             />
             <hr className="my-3 border-dashed border-neutral-200" />
             <RangeFilter
               name="Inscription Height"
               start={hStart}
               end={hEnd}
-              onApply={(f, t) => updateRange("h", f, t)}
+              onApply={(f, t) => updateRange('h', f, t)}
             />
             <hr className="my-3 border-dashed border-neutral-200" />
-            <RangeFilter
-              name="Coinbase Height"
-              start={cStart}
-              end={cEnd}
-              onApply={(f, t) => updateRange("c", f, t)}
-            />
+            <RangeFilter name="Coinbase Height" start={cStart} end={cEnd} onApply={(f, t) => updateRange('c', f, t)} />
 
             {/* todo: inscription number filter */}
             {/* todo: period filter */}
 
             <hr className="my-3 border-dashed border-neutral-200" />
-            <div className="my-6"></div>
-            <button
-              className="block w-full px-4 py-2 border text-neutral-600 rounded-[4px] uppercase"
-              onClick={clear}
-            >
+            <div className="my-6" />
+            <button className="block w-full px-4 py-2 border text-neutral-600 rounded-[4px] uppercase" onClick={clear}>
               {/* todo: clear button color state, hover, etc. */}
               Clear Filters {filterCount > 0 && `(${filterCount})`}
             </button>
@@ -257,7 +228,7 @@ const Page = () => {
                 <div className="grid grid-cols-2 gap-3">
                   {page > 0 ? (
                     <button
-                      className="text-white bg-black px-3 py-1.5 rounded-[4px]"
+                      className="text-[#454545]  bg-[#F9D560] px-3 py-1.5 rounded-[4px]"
                       onClick={() => updatePage(-1)}
                     >
                       &larr; Previous
@@ -271,7 +242,7 @@ const Page = () => {
                     </button>
                   )}
                   <button
-                    className="text-white bg-black px-3 py-1.5 rounded-[4px]"
+                    className="text-[#454545]  bg-[#F9D560] px-3 py-1.5 rounded-[4px]"
                     onClick={() => updatePage(+1)}
                   >
                     Next &rarr;
@@ -281,16 +252,14 @@ const Page = () => {
             </GalleryFull>
             {/* preload next page */}
             <div className="hidden">
-              <GalleryFull
-                apiOptions={{ ...apiOptions, page: apiOptions.page + 1 }}
-              />
+              <GalleryFull apiOptions={{ ...apiOptions, page: apiOptions.page + 1 }} />
             </div>
           </div>
         </div>
       </main>
       <Footer />
     </>
-  );
-};
+  )
+}
 
-export default Page;
+export default Page

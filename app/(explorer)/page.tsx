@@ -9,6 +9,8 @@ import Header from '../../components/Header'
 import Intro from '../../components/Intro'
 import SearchBar from '../../components/SearchBar'
 import Statistic from '../../components/home/statistic'
+import LiveMinting from '../../components/home/live-minting'
+import Transication from '../../components/home/transication'
 
 export default function Home() {
   return (
@@ -30,16 +32,22 @@ export default function Home() {
         {/* Gallery Section */}
         <div className="w-full flex  gap-10">
           <div className="w-1/2">
-            <p className="mt-20 text-sm mb-2 font-bold">Live Minting</p>
+            <p className="mt-20 text-sm mb-2 font-bold flex gap-x-[8px] ml-[8px]">
+              <img src="/minting.svg" alt="minting" />
+              Live Minting
+            </p>
             {/*<div className="mx-auto mt-3 mb-4 h-12 w-0 border border-dashed border-l-black" />*/}
-            <GalleryPreview />
+            <LiveMinting />
+            {/*<GalleryPreview />*/}
           </div>
           <div className="w-1/2">
-            <p className="mt-20 text-sm mb-2 font-bold">Latest Transactions</p>
+            <p className="mt-20 text-sm mb-2 font-bold flex gap-x-[8px] ml-[8px]">
+              <img src="/transication.svg" alt="transication" />
+              Latest Transactions
+            </p>
             {/*<div className="mx-auto mt-3 mb-4 h-12 w-0 border border-dashed border-l-black" />*/}
-            <GalleryPreview />
+            <Transication />
           </div>
-
           {/*<div className="mt-16 flex justify-around">*/}
           {/*  <CtaLink href="/explore">*/}
           {/*    Explore all, sort, and filter &rarr;*/}

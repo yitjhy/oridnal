@@ -55,7 +55,7 @@ const GalleryPreview = () => {
         {/*{previews.slice(0, 12).map((i, index) => (*/}
         {/*  <InscriptionCard key={index} inscription={i} />*/}
         {/*))}*/}
-        <div>{previews && <Table data={previews} columns={columns} />}</div>
+        <div>{previews && <Table data={previews.slice(0, 6)} columns={columns} />}</div>
       </div>
       {/* todo: re-add figma link to full feed */}
       {/* <div className="my-4 text-center underline">
