@@ -1,19 +1,19 @@
-"use client";
+'use client'
 
-import AddressDetails from "../../../../components/AddressDetails";
-import Footer from "../../../../components/Footer";
-import Header from "../../../../components/Header";
+import AddressDetails from '@/components/AddressDetails'
+import Footer from '@/components/Footer'
+import Header from '@/components/Header'
 
 const LocationById = ({ params }: { params: { aid: string } }) => {
   return (
     <>
       <Header />
-      <main className="p-8 flex-grow w-full max-w-5xl mx-auto">
+      <main style={{ width: '1560px', margin: '0 auto' }}>
         <AddressDetails aid={params.aid} />
       </main>
       <Footer />
     </>
-  );
-};
+  )
+}
 
-export default LocationById;
+export default LocationById

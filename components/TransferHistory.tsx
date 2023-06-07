@@ -1,6 +1,6 @@
 import { decodeBtcAddress } from "@stacks/stacking";
 import TimeAgo from "javascript-time-ago";
-import en from "javascript-time-ago/locale/en.json";
+// import en from "javascript-time-ago/locale/en.json";
 import ReactTimeAgo from "react-time-ago";
 import useSWR from "swr";
 
@@ -19,8 +19,6 @@ import {
   TooltipTrigger,
 } from "./Tooltip";
 import styles from "./TransferHistory.module.css";
-
-TimeAgo.addDefaultLocale(en);
 
 const TransferHistory = (params: { inscription: InscriptionResponse }) => {
   const { data, error, isLoading } = useSWR<

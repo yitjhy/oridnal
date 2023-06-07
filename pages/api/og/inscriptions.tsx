@@ -1,17 +1,17 @@
 import { ImageResponse } from "@vercel/og";
 import { NextRequest } from "next/server";
 
-import Ellipsis from "../../../components/Ellipsis";
-import { ThumbnailIcon } from "../../../components/Thumbnail";
-import { API_URL } from "../../../lib/constants";
-import { InscriptionResponse } from "../../../lib/types";
+import Ellipsis from "@/components/Ellipsis";
+import { ThumbnailIcon } from "@/components/Thumbnail";
+import { API_URL } from "@/lib/constants";
+import { InscriptionResponse } from "@/lib/types";
 
 export const config = {
   runtime: "edge",
 };
 
 // todo: re-add aeonik font when rewriting in puppetteer
-const font = fetch(new URL("../../../assets/Inter.ttf", import.meta.url)).then(
+const font = fetch(new URL("@/assets/Inter.ttf", import.meta.url)).then(
   (res) => res.arrayBuffer()
 );
 

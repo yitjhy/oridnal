@@ -1,8 +1,8 @@
-"use client";
+'use client'
 
-import Footer from "../../../../components/Footer";
-import Header from "../../../../components/Header";
-import SatDetails from "../../../../components/SatDetails";
+import Footer from '@/components/Footer'
+import Header from '@/components/Header'
+import SatDetails from '@/components/SatDetails'
 
 const SatPage = ({ params }: { params: { sid: string } }) => {
   return (
@@ -13,7 +13,7 @@ const SatPage = ({ params }: { params: { sid: string } }) => {
       </main>
       <Footer />
     </>
-  );
-};
+  )
+}
 
-export default SatPage;
+export default SatPage

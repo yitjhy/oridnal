@@ -1,13 +1,13 @@
-"use client";
+'use client'
 
-import Link from "next/link";
+import Link from 'next/link'
 
-import CtaLink from "../../components/CtaLink";
-import Footer from "../../components/Footer";
-import GalleryPreview from "../../components/GalleryPreview";
-import Header from "../../components/Header";
-import Intro from "../../components/Intro";
-import SearchBar from "../../components/SearchBar";
+import CtaLink from '@/components/CtaLink'
+import Footer from '@/components/Footer'
+import GalleryPreview from '@/components/GalleryPreview'
+import Header from '@/components/Header'
+import Intro from '@/components/Intro'
+import SearchBar from '@/components/SearchBar'
 
 export default function Home() {
   return (
@@ -20,10 +20,7 @@ export default function Home() {
           <Intro />
           <div>
             <SearchBar />
-            <Link
-              href="/explore"
-              className="mt-4 text-neutral-300 flex justify-center"
-            >
+            <Link href="/explore" className="mt-4 text-neutral-300 flex justify-center">
               or explore all
             </Link>
           </div>
@@ -31,16 +28,12 @@ export default function Home() {
 
         {/* Gallery Section */}
         <div className="w-full">
-          <p className="mt-20 text-sm text-center uppercase">
-            Latest Inscriptions
-          </p>
+          <p className="mt-20 text-sm text-center uppercase">Latest Inscriptions</p>
           <div className="mx-auto mt-3 mb-4 h-12 w-0 border border-dashed border-l-black" />
           <GalleryPreview />
 
           <div className="mt-16 flex justify-around">
-            <CtaLink href="/explore">
-              Explore all, sort, and filter &rarr;
-            </CtaLink>
+            <CtaLink href="/explore">Explore all, sort, and filter &rarr;</CtaLink>
           </div>
         </div>
 
@@ -57,20 +50,12 @@ export default function Home() {
             </div>
             <h4 className="mt-7 text-2xl">Looking to make an inscription?</h4>
             <p className="mt-4">
-              Download{" "}
-              <a
-                href="https://wallet.hiro.so/"
-                target="_blank"
-                className="text-neutral-300"
-              >
+              Download{' '}
+              <a href="https://wallet.hiro.so/" target="_blank" className="text-neutral-300">
                 Hiro Wallet
-              </a>{" "}
-              and try{" "}
-              <a
-                href="https://gamma.io/"
-                target="_blank"
-                className="text-neutral-300"
-              >
+              </a>{' '}
+              and try{' '}
+              <a href="https://gamma.io/" target="_blank" className="text-neutral-300">
                 Gamma.io
               </a>
             </p>
@@ -81,9 +66,8 @@ export default function Home() {
             </div>
             <h4 className="mt-7 text-2xl">What are Ordinals?</h4>
             <p className="mt-4">
-              Ordinal Inscriptions, similar to NFTs, are digital assets
-              inscribed on a satoshi, the lowest denomination of a Bitcoin
-              (BTC).{" "}
+              Ordinal Inscriptions, similar to NFTs, are digital assets inscribed on a satoshi, the lowest denomination
+              of a Bitcoin (BTC).{' '}
               <a
                 href="https://www.hiro.so/blog/what-are-bitcoin-ordinals "
                 target="_blank"
@@ -97,5 +81,5 @@ export default function Home() {
       </main>
       <Footer />
     </>
-  );
+  )
 }
