@@ -1,13 +1,14 @@
-"use client";
+'use client'
 
-import Link from "next/link";
+import Link from 'next/link'
 
-import CtaLink from "../../components/CtaLink";
-import Footer from "../../components/Footer";
-import GalleryPreview from "../../components/GalleryPreview";
-import Header from "../../components/Header";
-import Intro from "../../components/Intro";
-import SearchBar from "../../components/SearchBar";
+import CtaLink from '../../components/CtaLink'
+import Footer from '../../components/Footer'
+import GalleryPreview from '../../components/GalleryPreview'
+import Header from '../../components/Header'
+import Intro from '../../components/Intro'
+import SearchBar from '../../components/SearchBar'
+import Statistic from '../../components/home/statistic'
 
 export default function Home() {
   return (
@@ -15,61 +16,29 @@ export default function Home() {
       <Header />
       <main className="flex flex-col justify-between items-center min-h-screen w-[78rem] p-6 mx-auto space-y-6">
         {/* Intro Section */}
-        <div className="max-w-2xl mx-auto space-y-10 mb-[40px]">
+        <div className="w-[50rem] mx-auto space-y-3 mb-[40px]">
           {/* todo: wrap in motion */}
           <Intro />
           <div>
             <SearchBar />
-            <Link
-              href="/explore"
-              className="mt-4 text-neutral-300 flex justify-center"
-            >
+            <Link href="/explore" className="mt-4 text-neutral-300 flex justify-center">
               or explore all
             </Link>
           </div>
         </div>
-        <div className="w-full statistics grid grid-cols-3 gap-y-[52px] gap-x-4">
-            <div>
-                <div className="text-center text-[22px]">10,456,046</div>
-                <div className="text-center text-[#9F9F9F] text-[18px]">Inscriptions</div>
-            </div>
-            <div>
-                <div className="text-center text-[22px]">810,36</div>
-                <div className="text-center text-[#9F9F9F] text-[18px]">Total inscription fees</div>
-            </div>
-            <div>
-                <div className="text-center text-[22px]">42 satoshi/byte</div>
-                <div className="text-center text-[#9F9F9F] text-[18px]">Fee</div>
-            </div>
-            <div>
-                <div className="text-center text-[22px]">9.5GB</div>
-                <div className="text-center text-[#9F9F9F] text-[18px]">Stored data </div>
-            </div>
-            <div>
-                <div className="text-center text-[22px]">810,326</div>
-                <div className="text-center text-[#9F9F9F] text-[18px]">Wallet Address</div>
-            </div><div>
-                <div className="text-center text-[22px]">#792347</div>
-                <div className="text-center text-[#9F9F9F] text-[18px]">Blocks</div>
-            </div>
-        </div>
+        <Statistic />
         {/* Gallery Section */}
         <div className="w-full flex  gap-10">
-            <div className="w-1/2">
-                <p className="mt-20 text-sm mb-2 font-bold">
-                    Live Minting
-                </p>
-                {/*<div className="mx-auto mt-3 mb-4 h-12 w-0 border border-dashed border-l-black" />*/}
-                <GalleryPreview />
-            </div>
-            <div className="w-1/2">
-                <p className="mt-20 text-sm mb-2 font-bold">
-                    Latest Transactions
-                </p>
-                {/*<div className="mx-auto mt-3 mb-4 h-12 w-0 border border-dashed border-l-black" />*/}
-                <GalleryPreview />
-            </div>
-
+          <div className="w-1/2">
+            <p className="mt-20 text-sm mb-2 font-bold">Live Minting</p>
+            {/*<div className="mx-auto mt-3 mb-4 h-12 w-0 border border-dashed border-l-black" />*/}
+            <GalleryPreview />
+          </div>
+          <div className="w-1/2">
+            <p className="mt-20 text-sm mb-2 font-bold">Latest Transactions</p>
+            {/*<div className="mx-auto mt-3 mb-4 h-12 w-0 border border-dashed border-l-black" />*/}
+            <GalleryPreview />
+          </div>
 
           {/*<div className="mt-16 flex justify-around">*/}
           {/*  <CtaLink href="/explore">*/}
@@ -131,5 +100,5 @@ export default function Home() {
       </main>
       <Footer />
     </>
-  );
+  )
 }

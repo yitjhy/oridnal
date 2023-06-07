@@ -1,9 +1,9 @@
-import { useAtomValue } from "jotai";
-import { lastInscriptionDataAtom } from "../lib/store";
-import AnimatedText from "./AnimatedText";
+import { useAtomValue } from 'jotai'
+import { lastInscriptionDataAtom } from '../lib/store'
+import AnimatedText from './AnimatedText'
 
 const Intro = () => {
-  const lastInscriptionData = useAtomValue(lastInscriptionDataAtom);
+  const lastInscriptionData = useAtomValue(lastInscriptionDataAtom)
 
   return (
     <div className="mx-auto space-y-4">
@@ -20,11 +20,9 @@ const Intro = () => {
       {/*    <span className="opacity-0">placeholder</span>*/}
       {/*  )}*/}
       {/*</div>*/}
-      <div className="text-xl md:text-2xl">
-          OrdinalScan Chain Explorer
-      </div>
+      <div className="text-xl md:text-2xl text-[#4F4F4F]">OrdinalScan Chain Explorer</div>
     </div>
-  );
-};
+  )
+}
 
-export default Intro;
+export default Intro

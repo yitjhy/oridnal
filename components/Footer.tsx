@@ -3,7 +3,7 @@ import { GitHubLogoIcon, TwitterLogoIcon } from '@radix-ui/react-icons'
 const Footer = () => {
   return (
     <footer className="p-3 sm:p-5 md:p-10 w-full max-w-[88rem] mx-auto">
-      <div className="w-full bg-black rounded-md flex justify-between">
+      <div className="w-full bg-black  flex justify-between bg-[#343434]">
         <div className="p-4 sm:p-6 md:p-12 pb-8 flex flex-col">
           <a href="/">
             <img src="/logo2.svg" alt="Hiro Ordinals Beta" />
