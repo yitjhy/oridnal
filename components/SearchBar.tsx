@@ -222,12 +222,13 @@ const SearchBar = () => {
   return (
     <div
       className={cn(
-        "search-bar-container relative text-neutral-400 transition-colors h-12 mb-10",
+        "search-bar-container relative text-neutral-400 transition-colors h-12 mb-5",
         isFocused && "focused"
       )}
     >
-      <div className="search-bar-box absolute w-full p-[1px] bg-gradient-to-b from-neutral-0 to-neutral-200 rounded-[5px]">
-        <div className=" bg-white m-0 p-5 pt-10 w-full text-neutral-400 transition-colors rounded-[4px]">
+      <div className="search-bar-box absolute w-full p-[1px] bg-gradient-to-b from-neutral-0 to-neutral-200 rounded-[5px]"
+      >
+        <div className=" bg-white m-0 p-4 pt-10 w-full text-neutral-400 transition-colors rounded-[4px]">
           {groupedResult && isFocused
             ? Object.entries(groupedResult).map(([type, results]) =>
                 results.length ? (
@@ -267,12 +268,12 @@ const SearchBar = () => {
           ) : null}
         </div>
       </div>
-      <div className="absolute w-full p-5">
+      <div className="absolute w-full p-4 border-solid border border-[#767676] w-[500px] bg-[#E6E6E6]">
         <div className="flex gap-4">
           <SearchIcon className="text-neutral-300" />
           <input
             ref={searchInputRef}
-            className="w-full outline-none font-normal placeholder:text-neutral-300"
+            className="w-full outline-none font-normal placeholder:text-neutral-300 bg-[#E6E6E6]"
             type="text"
             value={search}
             onChange={(ev) => setSearch(ev.target.value.trim().toLowerCase())}
