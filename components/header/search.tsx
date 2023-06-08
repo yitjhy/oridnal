@@ -9,8 +9,8 @@ import useSWR from 'swr'
 import { API_URL } from '@/lib/constants'
 import { cn } from '@/lib/helpers'
 
-import './SearchBar.css'
-import Thumbnail from './Thumbnail'
+import '@/components/SearchBar.css'
+import Thumbnail from '@/components/Thumbnail'
 
 enum GoToTypes {
   Inscription = 'inscription',
@@ -228,7 +228,7 @@ const SearchBar = () => {
     >
       <div className="search-bar-box absolute w-full p-[1px] bg-gradient-to-b from-neutral-0 to-neutral-200 rounded-[5px]">
         <div
-          className={`bg-[#E6E6E6] m-0 p-4 mt-9  w-full text-neutral-400 transition-colors rounded-[4px] ${
+          className={`bg-[#F2F2F2] m-0 p-2 mt-9  w-full text-neutral-400 transition-colors rounded-[4px] ${
             search.length && groupedResult && isFocused ? 'block' : 'hidden'
           }`}
         >
@@ -265,12 +265,12 @@ const SearchBar = () => {
           ) : null}
         </div>
       </div>
-      <div className="absolute w-full p-4 border-solid border border-[#767676] w-[500px] bg-[#E6E6E6]">
+      <div className="absolute w-full p-2  w-[500px] bg-[#F2F2F2]">
         <div className="flex gap-4">
           <SearchIcon className="text-neutral-300" />
           <input
             ref={searchInputRef}
-            className="w-full outline-none font-normal placeholder:text-neutral-300 bg-[#E6E6E6]"
+            className="w-full outline-none font-normal placeholder:text-neutral-300 bg-[#F2F2F2]"
             type="text"
             value={search}
             onChange={(ev) => setSearch(ev.target.value.trim().toLowerCase())}

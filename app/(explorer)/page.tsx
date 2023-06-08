@@ -16,7 +16,7 @@ export default function Home() {
   return (
     <>
       <Header />
-      <main className="flex flex-col justify-between items-center min-h-screen w-[78rem] p-6 mx-auto space-y-6">
+      <main className="flex flex-col justify-between items-center min-h-screen w-[85rem] p-6 mx-auto space-y-6">
         {/* Intro Section */}
         <div className="w-[50rem] mx-auto space-y-3 mb-[40px]">
           {/* todo: wrap in motion */}
