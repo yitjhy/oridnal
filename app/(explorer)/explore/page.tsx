@@ -12,6 +12,7 @@ import RangeFilter from '../../../components/RangeFilter'
 
 import Sort, { sortOptions } from '../../../components/Sort'
 import { useHasMounted } from '@/lib/hooks'
+import FilterTag from '@/components/explore/filterTag'
 
 const fParams = ['image', 'video', 'audio', 'text', 'binary']
 const rParams = [
@@ -79,6 +80,8 @@ const Page = () => {
   const filterCount = arrayCount + paramsCount
 
   function toggle(key: string, type: string) {
+    console.log(key)
+    console.log(type)
     const set = new Set(searchParams.getAll(key))
     set.has(type) ? set.delete(type) : set.add(type) // toggle
     searchParams.delete(key)
@@ -213,10 +216,66 @@ const Page = () => {
             <div className="w-full text-xs uppercase">
               <div className="space-y-2">
                 <div className="flex justify-between">
-                  <div className="uppercase py-1 opacity-0">Show todo</div>
+                  <div />
                   <Sort sortKey={sortKey} updateSort={updateSort} />
                 </div>
                 <hr className="border-dashed border-neutral-300" />
+                <div className="uppercase flex gap-x-[10px]">
+                  {[...fSelected].map((item) => {
+                    return (
+                      <FilterTag
+                        key={item}
+                        text={item}
+                        onClose={() => {
+                          toggle('f', item)
+                        }}
+                      />
+                    )
+                  })}
+                  {[...rSelected].map((item) => {
+                    return (
+                      <FilterTag
+                        key={item}
+                        text={item}
+                        onClose={() => {
+                          toggle('r', item)
+                        }}
+                      />
+                    )
+                  })}
+                  {(dStart || dEnd) && (
+                    <FilterTag
+                      text={`${dStart || '?'} - ${dEnd || '?'}`}
+                      onClose={() => {
+                        updateRange('d', '', '')
+                      }}
+                    />
+                  )}
+                  {(nStart || nEnd) && (
+                    <FilterTag
+                      text={`number: ${nStart || '?'} - ${nEnd || '?'}`}
+                      onClose={() => {
+                        updateRange('n', '', '')
+                      }}
+                    />
+                  )}
+                  {(hStart || hEnd) && (
+                    <FilterTag
+                      text={`Inscription height: ${hStart || '?'} - ${hEnd || '?'}`}
+                      onClose={() => {
+                        updateRange('h', '', '')
+                      }}
+                    />
+                  )}
+                  {(cStart || cEnd) && (
+                    <FilterTag
+                      text={`Coinbase height: ${cStart || '?'} - ${cEnd || '?'}`}
+                      onClose={() => {
+                        updateRange('c', '', '')
+                      }}
+                    />
+                  )}
+                </div>
               </div>
             </div>
             {/* IMAGES */}

@@ -5,14 +5,23 @@ import { ArrowUpRight } from 'lucide-react'
 import Link from 'next/link'
 import { HoverCard, HoverCardContent, HoverCardTrigger } from './HoverCard'
 import { usePathname } from 'next/navigation'
+import Search from '@/components/header/search'
 
 const Header = ({ children }: { children?: React.ReactNode }) => {
   const pathname = usePathname()
   return (
     <header className="flex justify-between px-6 md:px-10 py-8 w-full max-w-[88rem] mx-auto">
-      <a href="/">
-        <img src="/logo2.svg" alt="Hiro Ordinals Beta" />
-      </a>
+      <div className="flex gap-x-[20px]">
+        <a href="/">
+          <img src="/logo2.svg" alt="Hiro Ordinals Beta" />
+        </a>
+        {pathname !== '/' && (
+          <div className="w-[400px]">
+            <Search />
+          </div>
+        )}
+      </div>
+
       {children}
       {/* todo: explore button, stats, hiro.so */}
       <div className="hidden sm:block">
