@@ -5,6 +5,7 @@ import { HOME_API_URL } from '@/lib/constants'
 import { fetcher } from '@/lib/helpers'
 import Table, { TableColumn } from '@/components/table/Table'
 import moment from 'moment'
+import Skeleton from '@/components/skeleton'
 // import { mimeTypes } from '@/components/GalleryFull'
 
 const mimeTypes: Record<string, string[]> = {
@@ -87,12 +88,16 @@ const columns: TableColumn<TTransicationItem>[] = [
     render: (data) => <span>{moment(data?.block_time).format('YYYY.MM.DD HH:mm:ss')}</span>,
   },
 ]
+
 const Transication = () => {
   const { data, error, isLoading } = useSWR<BaseResponse<TTransicationItem[]>>(
     `${HOME_API_URL}/last-transfers?limit=20`,
     fetcher
   )
   const previews = data ? data.data : Array(6).fill(null) // skeleton values
+  if (!data?.data) {
+    return <Skeleton table />
+  }
   return <div>{previews && <Table data={previews.slice(0, 6)} columns={columns} />}</div>
 }
 export default Transication

@@ -109,7 +109,7 @@ const TableHeader = styled.div<{ gap?: string }>`
   align-items: center;
   position: relative;
   border-radius: 5px;
-  background: #f6f6f6;
+  background: #f0f0f0;
   & > :first-child {
     margin-left: 0;
   }
