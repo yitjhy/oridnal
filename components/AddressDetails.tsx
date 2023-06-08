@@ -8,7 +8,6 @@ import { InscriptionResponse, ListResponse } from '../lib/types'
 import Ellipsis from './Ellipsis'
 import InscriptionCard from './InscriptionCard'
 import Loading from './Loading'
-import styled from 'styled-components'
 
 const AddressDetails = (params: { aid: string }) => {
   const { data, error, isLoading } = useSWR<ListResponse<InscriptionResponse>>(
@@ -20,73 +19,29 @@ const AddressDetails = (params: { aid: string }) => {
   if (error) return <span>Something went wrong ʕ•̠͡•ʔ</span>
   if (!params.aid) return <div>404</div>
   if (!data) return <Loading />
-
-  // todo: add pagination to allow viewing all inscriptions? or link to explore page
+  
   return (
     <div className="p-4 pt-10 rounded-lg flex flex-col justify-between items-center">
-      <BlockTitle>
+      <h1 className="flex align-center justify-center font-[700] text-[26px] text-[#4f4f4f]">
         Address{' '}
-        <Address>
+        <span className="inline-block w-[fit-content] h-[48px] bg-[#f9d560] text-[#454545] flex align-center justify-center ml-[38px] px-[54px]">
           <Ellipsis text={params.aid} />
-        </Address>
-      </BlockTitle>
+        </span>
+      </h1>
       {data.results.length ? (
-        <Inscription className="self-start">Inscriptions ({data.total})</Inscription>
+        <h2 className="self-start font-[700] font-[18px] leading-[23px] text-[#4f4f4f] mt-[58px]">
+          Inscriptions ({data.total})
+        </h2>
       ) : (
         <p className="my-3">No inscriptions currently owned by this address</p>
       )}
-      <GridWrapper>
+      <div className="w-full mt-[27px] grid md:grid-cols-5 wrap gap-[22px]">
         {data.results.map((i, index) => (
           <InscriptionCard key={index} inscription={i} />
         ))}
-      </GridWrapper>
+      </div>
     </div>
   )
 }
 
 export default AddressDetails
-
-const BlockTitle = styled.h1`
-  font-style: normal;
-  font-weight: 700;
-  font-size: 26px;
-  line-height: 33px;
-  color: #4f4f4f;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`
-
-const Inscription = styled.h2`
-  font-style: normal;
-  font-weight: 700;
-  font-size: 18px;
-  line-height: 23px;
-  color: #4f4f4f;
-  margin-top: 58px;
-`
-
-const GridWrapper = styled.div`
-  width: 100%;
-  margin-top: 27px;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, 256px);
-  gap: 22px;
-`
-
-const Address = styled.span`
-  display: inline-block;
-  width: fit-content;
-  height: 48px;
-  background: #f9d560;
-  font-style: normal;
-  font-weight: 700;
-  font-size: 26px;
-  line-height: 33px;
-  color: #454545;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-left: 38px;
-  padding: 0 54px;
-`

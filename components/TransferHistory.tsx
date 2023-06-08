@@ -1,7 +1,7 @@
 import { decodeBtcAddress } from "@stacks/stacking";
 import TimeAgo from "javascript-time-ago";
 // import en from "javascript-time-ago/locale/en.json";
-import ReactTimeAgo from "react-time-ago";
+// import ReactTimeAgo from "react-time-ago";
 import useSWR from "swr";
 
 import { API_URL } from "../lib/constants";
@@ -81,7 +81,7 @@ function TransferRowItem(params: {
   return (
     <div className="flex flex-col items-end">
       <div className="text-sm">
-        <ReactTimeAgo date={params.transfer.timestamp} locale="en-US" />
+        {/* <ReactTimeAgo date={params.transfer.timestamp} locale="en-US" /> */}
       </div>
       <div className="flex">
         <div className="flex items-center text-sm w-16">

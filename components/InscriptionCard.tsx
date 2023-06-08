@@ -4,7 +4,6 @@ import { motion } from 'framer-motion'
 import { cn } from '../lib/helpers'
 import { InscriptionResponse } from '../lib/types'
 import InscriptionRender from './InscriptionRender'
-import styled from 'styled-components'
 
 const InscriptionCard = ({ inscription, light = false }: { inscription?: InscriptionResponse; light?: boolean }) => {
   if (!inscription?.id)
