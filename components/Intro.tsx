@@ -1,9 +1,9 @@
-import { useAtomValue } from 'jotai'
-import { lastInscriptionDataAtom } from '../lib/store'
-import AnimatedText from './AnimatedText'
+// import { useAtomValue } from 'jotai'
+// import { lastInscriptionDataAtom } from '../lib/store'
+// import AnimatedText from './AnimatedText'
 
 const Intro = () => {
-  const lastInscriptionData = useAtomValue(lastInscriptionDataAtom)
+  // const lastInscriptionData = useAtomValue(lastInscriptionDataAtom)
 
   return (
     <div className="mx-auto space-y-4">

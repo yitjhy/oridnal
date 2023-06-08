@@ -115,7 +115,7 @@ const InscriptionDetails = (params: { iid: string }) => {
                 <td className="md:py-2 pr-8 whitespace-nowrap underline md:no-underline text-[#9f9f9f] text-[18px]">Inscription Date</td>
                 <td className="md:py-2 break-all text-[#4f4f4f] text-[18px]">
                   {new Intl.DateTimeFormat('default', {
-                    dateStyle: 'long',
+                    dateStyle: 'short',
                     timeStyle: 'medium',
                   }).format(new Date(data.genesis_timestamp))}
                 </td>
@@ -127,7 +127,7 @@ const InscriptionDetails = (params: { iid: string }) => {
                   </td>
                   <td className="md:py-2 break-all text-[#4f4f4f] text-[18px]">
                     {new Intl.DateTimeFormat('default', {
-                      dateStyle: 'long',
+                      dateStyle: 'short',
                       timeStyle: 'medium',
                     }).format(new Date(data.timestamp))}
                   </td>
