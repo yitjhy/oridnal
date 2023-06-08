@@ -8,10 +8,26 @@ import moment from 'moment'
 
 const columns: TableColumn<TLiveMintingItem>[] = [
   {
-    name: 'Inscritions',
+    name: 'Inscriptions',
     sortable: false,
     key: 'number',
-    render: (data) => <span>Inscritions#{data?.number}</span>,
+    render: (data) => (
+      <div className="flex gap-x-[1rem]">
+        <img
+          alt="img"
+          className="w-[40px] h-[40px] bg-[#3498DB]"
+          src="https://api.hiro.so/ordinals/v1/inscriptions/0bcf4ff230ceca62485d76eb498714671c4f5434523a83e23dc3a42ab4b4c8dei0/content"
+        />
+        <div>
+          <div>Inscription#{data?.number}</div>
+          <div className="text-[12px] text-[#9F9F9F] flex gap-x-[0.5rem]">
+            <div className="uppercase">{data?.content_type.slice(0, 4)}</div>
+            <div className="border-l-[1px] scale-y-50" />
+            <div>{data?.content_length}Bytes</div>
+          </div>
+        </div>
+      </div>
+    ),
   },
   {
     name: 'Transfer',

@@ -5,13 +5,59 @@ import { HOME_API_URL } from '@/lib/constants'
 import { fetcher } from '@/lib/helpers'
 import Table, { TableColumn } from '@/components/table/Table'
 import moment from 'moment'
+// import { mimeTypes } from '@/components/GalleryFull'
+
+const mimeTypes: Record<string, string[]> = {
+  // Safe Images https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types#image_types
+  image: [
+    'image/apng',
+    'image/avif',
+    'image/gif',
+    'image/jpg',
+    'image/jpeg',
+    'image/png',
+    'image/svg+xml',
+    'image/webp',
+  ],
+  audio: ['audio/midi', 'audio/mod', 'audio/mpeg'],
+  video: ['video/mp4', 'video/webm'],
+  text: ['text/html', 'text/markdown', 'text/plain'],
+  binary: ['application/epub+zip', 'application/json', 'application/pdf', 'application/pgp-signature'],
+}
+const getFileType = (content_type: string) => {
+  let res: string = ''
+  Object.keys(mimeTypes).filter((key) => {
+    mimeTypes[key].filter((type) => {
+      if (content_type.includes(type)) {
+        res = key
+      }
+    })
+  })
+  return res
+}
 
 const columns: TableColumn<TTransicationItem>[] = [
   {
-    name: 'Inscritions',
+    name: 'Inscriptions',
     sortable: false,
     key: 'number',
-    render: (data) => <span>Inscritions#{data?.number}</span>,
+    render: (data) => (
+      <div className="flex gap-x-[1rem]">
+        <img
+          alt="img"
+          className="w-[40px] h-[40px] bg-[#3498DB]"
+          src="https://api.hiro.so/ordinals/v1/inscriptions/0bcf4ff230ceca62485d76eb498714671c4f5434523a83e23dc3a42ab4b4c8dei0/content"
+        />
+        <div>
+          <div>Inscription#{data?.number}</div>
+          <div className="text-[12px] text-[#9F9F9F] flex gap-x-[0.5rem]">
+            <div className="uppercase">{getFileType(data?.content_type || '')}</div>
+            <div className="border-l-[1px] scale-y-50" />
+            <div>{data?.content_length}Bytes</div>
+          </div>
+        </div>
+      </div>
+    ),
   },
   {
     name: 'Transfer',
