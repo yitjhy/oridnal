@@ -13,7 +13,7 @@ const StatisticInfo = () => {
         <div className="text-center text-[#9F9F9F] text-[18px]">Inscriptions</div>
       </div>
       <div>
-        <div className="text-center text-[22px]">{data?.data?.totalInscriptionFee.toLocaleString() || '-'}</div>
+        <div className="text-center text-[22px]">{data?.data?.totalInscriptionFee.toLocaleString() || '-'} BTC</div>
         <div className="text-center text-[#9F9F9F] text-[18px]">Total inscription fees</div>
       </div>
       <div>
@@ -21,7 +21,7 @@ const StatisticInfo = () => {
         <div className="text-center text-[#9F9F9F] text-[18px]">Fee</div>
       </div>
       <div>
-        <div className="text-center text-[22px]">{data?.data?.storedData.toLocaleString() || '-'}</div>
+        <div className="text-center text-[22px]">{data?.data?.storedData.toLocaleString() || '-'} GB</div>
         <div className="text-center text-[#9F9F9F] text-[18px]">Stored data </div>
       </div>
       <div>

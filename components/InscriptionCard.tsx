@@ -25,7 +25,7 @@ const InscriptionCard = ({ inscription, light = false }: { inscription?: Inscrip
   return (
     <Link
       href={`/inscription/${inscription.id}`}
-      className="border sm:p-2 md:p-3 lg:p-5  space-y-2 md:space-y-3 lg:space-y-5"
+      className="border sm:p-2 md:p-3 lg:p-5  space-y-2 md:space-y-3 lg:space-y-5 ease-linear duration-150 hover:-translate-y-1 hover:-translate-x-1"
     >
       <div className="w-full  aspect-square overflow-hidden">
         <InscriptionRender inscription={inscription} />

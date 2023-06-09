@@ -1,4 +1,4 @@
-import { API_URL } from '@/lib/constants'
+import { API_URL, CDN } from '@/lib/constants'
 import { InscriptionResponse } from '@/lib/types'
 
 const InscriptionRenderImage = ({ inscription }: { inscription: InscriptionResponse }) => {
@@ -8,7 +8,7 @@ const InscriptionRenderImage = ({ inscription }: { inscription: InscriptionRespo
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         alt={`Inscription #${inscription.number}`}
-        src={`${API_URL}/inscriptions/${inscription.id}/content`}
+        src={`${CDN}/content/${inscription.id}`}
         style={{ imageRendering: 'pixelated' }}
         width="100%"
         height="100%"

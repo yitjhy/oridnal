@@ -16,14 +16,17 @@ export default function Home() {
   return (
     <>
       <Header />
-      <main className="flex flex-col justify-between items-center min-h-screen w-[85rem] p-6 mx-auto space-y-6">
+      <main className="flex flex-col justify-between items-center min-h-screen w-[85rem] p-6 mx-auto space-y-8 pt-8">
         {/* Intro Section */}
         <div className="w-[50rem] mx-auto space-y-3 mb-[40px]">
           {/* todo: wrap in motion */}
           <Intro />
           <div>
             <SearchBar />
-            <Link href="/explore" className="mt-4 text-neutral-300 flex justify-center">
+            <Link
+              href="/explore"
+              className="mt-4 text-neutral-300 flex justify-center ease-linear duration-150 hover:-translate-y-[2px] hover:-translate-x-[2px]"
+            >
               or explore all
             </Link>
           </div>

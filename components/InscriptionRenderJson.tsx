@@ -1,5 +1,6 @@
-import { JsonView, defaultStyles } from 'react-json-view-lite'
+import { JsonView, defaultStyles, darkStyles } from 'react-json-view-lite'
 import useSWR from 'swr'
+import './inscriptionRenderJson.css'
 
 import { useToggle } from 'react-use'
 import { API_URL } from '@/lib/constants'
@@ -46,28 +47,30 @@ const JsonViewer = (props: { text: string; content: object; protocol?: string; c
   const [isJsonViewEnabled, toggleJsonView] = useToggle(false)
 
   return (
-    <div className={cn('relative aspect-square w-full bg-[#F2F0ED]', props.className)}>
+    <div className={cn('relative aspect-square w-full bg-[#757575] text-[#fff] p-[10px]', props.className)}>
       {isJsonViewEnabled ? (
         <div
-          className="h-full w-full overflow-auto bg-gray-100 pb-7 pt-1 font-['Aeonik_Mono'] text-sm leading-[1.15rem] tracking-tight"
+          className="h-full w-full overflow-auto bg-[#757575] text-[#fff] pb-7 pt-1 font-['Aeonik_Mono'] text-sm leading-[1.15rem] tracking-tight"
           onClick={(e) => e.preventDefault()} // prevent click through (e.g. when used in links)
         >
-          <JsonView data={props.content} style={defaultStyles} />
+          <div className="json-view">
+            <JsonView data={props.content} style={defaultStyles} />
+          </div>
         </div>
       ) : (
         <>
-          <pre className="h-full w-full overflow-auto p-0.5 pl-2 font-['Aeonik_Mono'] text-sm leading-[1.15rem] tracking-tight">
+          <pre className="h-full w-full overflow-auto p-0.5 pl-2  font-['Aeonik_Mono'] text-sm leading-[1.15rem] tracking-tight">
             {props.text}
           </pre>
           <div
             className="pointer-events-none absolute inset-0"
-            style={{
-              background: 'linear-gradient(rgba(242, 240, 237, 0),rgba(242, 240, 237, 0),rgba(242, 240, 237, 1))',
-            }}
+            // style={{
+            //   background: 'linear-gradient(rgba(242, 240, 237, 0),rgba(242, 240, 237, 0),rgba(242, 240, 237, 1))',
+            // }}
           />
         </>
       )}
-      <div className="absolute bottom-1 left-1 flex space-x-0.5 text-xs uppercase text-neutral-0">
+      <div className="absolute bottom-1  flex space-x-0.5 text-xs uppercase text-neutral-0">
         {props.protocol && (
           <div className="rounded border border-neutral-400 bg-neutral-400 px-1 py-0.5 leading-none shadow-[0_1px_2px_0_rgba(0,0,0,0.2)]">
             {props.protocol}

@@ -207,7 +207,10 @@ const Page = () => {
 
             <hr className="my-3 border-dashed border-neutral-200" />
             <div className="my-6" />
-            <button className="block w-full px-4 py-2 border text-neutral-600 rounded-[4px] uppercase" onClick={clear}>
+            <button
+              className="block w-full px-4 py-2 border text-neutral-600 rounded-[4px] uppercase ease-linear duration-150 hover:-translate-y-[2px] hover:-translate-x-[2px]"
+              onClick={clear}
+            >
               {/* todo: clear button color state, hover, etc. */}
               Clear Filters {filterCount > 0 && `(${filterCount})`}
             </button>

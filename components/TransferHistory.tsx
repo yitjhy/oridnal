@@ -32,13 +32,16 @@ const TransferHistory = (params: { inscription: InscriptionResponse }) => {
       </span>
     )
 
+  if (data.results.filter((item) => item.address).length === 0) return <></>
   return (
     <div className="text-center flex flex-col items-center p-2">
       <h2 className="text-center text-xl my-4">Transfer History</h2>
       <div className="flex flex-col items-center w-full max-w-2xl border rounded-lg p-8 space-y-4">
-        {data.results.map((transfer, i) => (
-          <TransferRowItem key={transfer.tx_id} transfer={transfer} length={data.results.length} i={i} />
-        ))}
+        {data.results
+          .filter((item) => item.address)
+          .map((transfer, i) => (
+            <TransferRowItem key={transfer.tx_id} transfer={transfer} length={data.results.length} i={i} />
+          ))}
       </div>
     </div>
   )

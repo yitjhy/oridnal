@@ -60,7 +60,7 @@ const RangeFilter = ({
             </div>
             <button
               className={cn(
-                'mt-4 block w-full px-4 py-2 border text-neutral-600 rounded-[4px] uppercase bg-[#F5BD07]',
+                'mt-4 block w-full px-4 py-2 border text-neutral-600 rounded-[4px] uppercase bg-[#F5BD07] ease-linear duration-150 hover:-translate-y-[2px] hover:-translate-x-[2px]',
                 isAppliable && 'text-red-600'
               )}
               onClick={() => onApply(currentStart, currentEnd)}

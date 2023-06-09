@@ -48,10 +48,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {/*  <meta*/}
         {/*    httpEquiv="Content-Security-Policy"*/}
         {/*    content={`frame-src ${*/}
-        {/*      process.env.NODE_ENV === "production"*/}
-        {/*        ? ""*/}
-        {/*        : " http://localhost:3000"*/}
-        {/*    } https://api.hiro.so https://ordinals.hiro.so;`}*/}
+        {/*      process.env.NODE_ENV === 'production' ? '' : ' http://localhost:3000'*/}
+        {/*    } https://api.hiro.so https://ordinals.hiro.so https://cdn.ordinalscan.net;`}*/}
         {/*  />*/}
         {/*)}*/}
 

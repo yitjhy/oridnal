@@ -3,8 +3,11 @@ import Iframe from './Iframe'
 import InscriptionRenderImage from './InscriptionRenderImage'
 import InscriptionRenderJson, { WithContentJson } from './InscriptionRenderJson'
 import InscriptionRenderText from './InscriptionRenderText'
+import { usePathname } from 'next/navigation'
 
 const InscriptionRender = (props: { inscription: InscriptionResponse; className?: string }) => {
+  const pathname = usePathname()
+  console.log(pathname)
   if (props.inscription.content_type.startsWith('image/')) {
     return <InscriptionRenderImage {...props} />
   }
@@ -15,7 +18,11 @@ const InscriptionRender = (props: { inscription: InscriptionResponse; className?
 
   if (props.inscription.content_type.startsWith('text/')) {
     // also handles json parseable content from plain text
-    return <InscriptionRenderText {...props} />
+    return (
+      <div className={`${pathname?.includes('inscription') ? 'p-[20px]' : ''}`}>
+        <InscriptionRenderText {...props} />
+      </div>
+    )
   }
 
   return <Iframe {...props} src={`/preview/${props.inscription.id}`} />
