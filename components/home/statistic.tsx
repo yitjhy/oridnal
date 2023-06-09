@@ -6,6 +6,7 @@ import { TStatistic } from '@/types/home'
 
 const StatisticInfo = () => {
   const { data, error, isLoading } = useSWR<BaseResponse<TStatistic>>(`${HOME_API_URL}/statistical-data`, fetcher)
+  const { data: feeData } = useSWR<BaseResponse<{ fastestFee: number }>>(`${HOME_API_URL}/get-fastest-fee`, fetcher)
   return (
     <div className="w-full statistics grid grid-cols-3 gap-y-[52px] gap-x-4">
       <div>
@@ -17,7 +18,7 @@ const StatisticInfo = () => {
         <div className="text-center text-[#9F9F9F] text-[18px]">Total inscription fees</div>
       </div>
       <div>
-        <div className="text-center text-[22px]">{data?.data?.fee.toLocaleString()} satoshi/byte</div>
+        <div className="text-center text-[22px]">{feeData?.data?.fastestFee.toLocaleString()} satoshi/byte</div>
         <div className="text-center text-[#9F9F9F] text-[18px]">Fee</div>
       </div>
       <div>
