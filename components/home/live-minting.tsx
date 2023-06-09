@@ -6,6 +6,8 @@ import { fetcher } from '@/lib/helpers'
 import Table, { TableColumn } from '@/components/table/Table'
 import moment from 'moment'
 import Skeleton from '@/components/skeleton'
+import Link from 'next/link'
+import ReactTimeAgo from 'react-time-ago'
 
 const columns: TableColumn<TLiveMintingItem>[] = [
   {
@@ -38,15 +40,15 @@ const columns: TableColumn<TLiveMintingItem>[] = [
       <div>
         <div>
           From{'  '}
-          <span className="text-[#3498DB] cursor-pointer">
+          <Link href={`/address/${data?.from_address}`} className="text-[#3498DB] cursor-pointer">
             {`${data?.from_address.slice(0, 6)}...${data?.from_address.slice(data?.from_address.length - 6)}`}
-          </span>
+          </Link>
         </div>
         <div>
           To{'     '}
-          <span className="text-[#3498DB] cursor-pointer">
+          <Link href={`/address/${data?.to_address}`} className="text-[#3498DB] cursor-pointer">
             {`${data?.to_address.slice(0, 6)}...${data?.to_address.slice(data?.to_address.length - 6)}`}
-          </span>
+          </Link>
         </div>
       </div>
     ),
@@ -55,7 +57,7 @@ const columns: TableColumn<TLiveMintingItem>[] = [
     name: 'Time',
     sortable: false,
     key: 'block_time',
-    render: (data) => <span>{moment(data?.block_time).format('YYYY.MM.DD HH:mm:ss')}</span>,
+    render: (data) => <ReactTimeAgo date={data?.block_time * 1000} locale="en-US" />,
   },
 ]
 

@@ -38,7 +38,7 @@ const InscriptionDetails = (params: { iid: string }) => {
   return (
     <>
       <div className="flex flex-col md:flex-row md:space-x-12">
-        <div className='md:w-[45%]'>
+        <div className="md:w-[45%]">
           <div className="lg:rounded-md">
             <iframe
               className="md:mt-4 max-w-[65%] mb-16 md:mb-0 md:max-w-full lg:max-w-none w-full aspect-square overflow-hidden mx-auto"
@@ -50,19 +50,25 @@ const InscriptionDetails = (params: { iid: string }) => {
         </div>
 
         <div className="flex-grow">
-          <h2 className='text-[26px] leading-[33px] font-[700] text-[#4f4f4f]'>Inscription #{data.number}</h2>
-          <table style={{ marginTop: '37px' }} className="w-full text-sm uppercase border-collapse">
+          <h2 className="text-[26px] leading-[33px] font-[700] text-[#4f4f4f]">Inscription #{data.number}</h2>
+          <table style={{ marginTop: '37px' }} className="w-full text-sm border-collapse">
             <tbody>
               <tr className="flex flex-col md:table-row py-3 space-y-0.5">
-                <td className="md:py-2 pr-8 whitespace-nowrap underline md:no-underline text-[#9f9f9f] text-[18px]">Type</td>
-                <td className="md:py-2 break-all text-[#4f4f4f] text-[18px]">{data.content_type}</td>
+                <td className="md:py-2 pr-8 whitespace-nowrap underline md:no-underline text-[#9f9f9f] text-[18px] uppercase">
+                  Type
+                </td>
+                <td className="md:py-2 break-all text-[#4f4f4f] text-[18px] uppercase">{data.content_type}</td>
               </tr>
               <tr className="flex flex-col md:table-row py-3 space-y-0.5  ">
-                <td className="md:py-2 pr-8 whitespace-nowrap underline md:no-underline text-[#9f9f9f] text-[18px]">Content Length</td>
+                <td className="md:py-2 pr-8 whitespace-nowrap underline md:no-underline text-[#9f9f9f] text-[18px] uppercase">
+                  Content Length
+                </td>
                 <td className="md:py-2 break-all text-[#4f4f4f] text-[18px]">{data.content_length}</td>
               </tr>
               <tr className="flex flex-col md:table-row py-3 space-y-0.5 ">
-                <td className="md:py-2 pr-8 whitespace-nowrap underline md:no-underline text-[#9f9f9f] text-[18px]">Sat</td>
+                <td className="md:py-2 pr-8 whitespace-nowrap underline md:no-underline text-[#9f9f9f] text-[18px] uppercase">
+                  Sat
+                </td>
                 <td className="md:py-2 break-all text-[#4f4f4f] text-[18px]">
                   <Link href={`/sat/${data.sat_ordinal}`} className="underline">
                     {data.sat_ordinal}
@@ -70,18 +76,23 @@ const InscriptionDetails = (params: { iid: string }) => {
                 </td>
               </tr>
               <tr className="flex flex-col md:table-row py-3 space-y-0.5 ">
-                <td className="md:py-2 pr-8 whitespace-nowrap underline md:no-underline text-[#9f9f9f] text-[18px]">Sat Rarity</td>
+                <td className="md:py-2 pr-8 whitespace-nowrap underline md:no-underline text-[#9f9f9f] text-[18px] uppercase">
+                  Sat Rarity
+                </td>
                 <td className="md:py-2 break-all text-[#4f4f4f] text-[18px]">
-                  
-                <div className="inline-block bg-[#f5bc00] px-[18px] py-[3px] text-[#4f4f4f] text-[18px]">{data.sat_rarity}</div>
+                  <div className="inline-block bg-[#f5bc00] px-[18px] py-[3px] text-[#4f4f4f] text-[18px]">
+                    {data.sat_rarity}
+                  </div>
                 </td>
               </tr>
               <tr className="flex flex-col md:table-row py-3 space-y-0.5 ">
-                <td className="md:py-2 pr-8 whitespace-nowrap underline md:no-underline text-[#9f9f9f] text-[18px]">ID</td>
+                <td className="md:py-2 pr-8 whitespace-nowrap underline md:no-underline text-[#9f9f9f] text-[18px] uppercase">
+                  ID
+                </td>
                 <td className="md:py-2 break-all text-[#4f4f4f] text-[18px]">{data.id}</td>
               </tr>
               <tr className="flex flex-col md:table-row py-3 space-y-0.5 ">
-                <td className="md:py-2 pr-8 whitespace-nowrap underline md:no-underline text-[#9f9f9f] text-[18px]">
+                <td className="md:py-2 pr-8 whitespace-nowrap underline md:no-underline text-[#9f9f9f] text-[18px] uppercase">
                   Owned By
                   {/* todo: add help tooltip to explain what an address is and how utxo ownership works */}
                 </td>
@@ -92,7 +103,7 @@ const InscriptionDetails = (params: { iid: string }) => {
                 </td>
               </tr>
               <tr className="flex flex-col md:table-row py-3 space-y-0.5 ">
-                <td className="md:py-2 pr-8 whitespace-nowrap underline md:no-underline text-[#9f9f9f] text-[18px]">
+                <td className="md:py-2 pr-8 whitespace-nowrap underline md:no-underline text-[#9f9f9f] text-[18px] uppercase">
                   Inscribed By
                   {/* todo: add help tooltip to explain what an address is and how utxo ownership works */}
                 </td>
@@ -103,7 +114,9 @@ const InscriptionDetails = (params: { iid: string }) => {
                 </td>
               </tr>
               <tr className="flex flex-col md:table-row py-3 space-y-0.5 ">
-                <td className="md:py-2 pr-8 whitespace-nowrap underline md:no-underline text-[#9f9f9f] text-[18px]">Inscription TxId</td>
+                <td className="md:py-2 pr-8 whitespace-nowrap underline md:no-underline text-[#9f9f9f] text-[18px] uppercase">
+                  Inscription TxId
+                </td>
                 <td className="md:py-2 break-all underline text-[#9f9f9f] text-[18px]">
                   <Link href={`https://mempool.space/tx/${data.genesis_tx_id}`} target="_blank">
                     {data.genesis_tx_id} ↗
@@ -112,7 +125,9 @@ const InscriptionDetails = (params: { iid: string }) => {
               </tr>
               {/* todo: add Inscription Date */}
               <tr className="flex flex-col md:table-row py-3 space-y-0.5 ">
-                <td className="md:py-2 pr-8 whitespace-nowrap underline md:no-underline text-[#9f9f9f] text-[18px]">Inscription Date</td>
+                <td className="md:py-2 pr-8 whitespace-nowrap underline md:no-underline text-[#9f9f9f] text-[18px] uppercase">
+                  Inscription Date
+                </td>
                 <td className="md:py-2 break-all text-[#4f4f4f] text-[18px]">
                   {new Intl.DateTimeFormat('default', {
                     dateStyle: 'short',
@@ -122,7 +137,7 @@ const InscriptionDetails = (params: { iid: string }) => {
               </tr>
               {wasTransferred && (
                 <tr className="flex flex-col md:table-row py-3 space-y-0.5 ">
-                  <td className="md:py-2 pr-8 whitespace-nowrap underline md:no-underline text-[#9f9f9f] text-[18px]">
+                  <td className="md:py-2 pr-8 whitespace-nowrap underline md:no-underline text-[#9f9f9f] text-[18px] uppercase">
                     Last Transfer Date
                   </td>
                   <td className="md:py-2 break-all text-[#4f4f4f] text-[18px]">
@@ -134,7 +149,7 @@ const InscriptionDetails = (params: { iid: string }) => {
                 </tr>
               )}
               <tr className="flex flex-col md:table-row py-3 space-y-0.5 ">
-                <td className="md:py-2 pr-8 whitespace-nowrap underline md:no-underline text-[#9f9f9f] text-[18px]">
+                <td className="md:py-2 pr-8 whitespace-nowrap underline md:no-underline text-[#9f9f9f] text-[18px] uppercase">
                   Inscription Height
                 </td>
                 <td className="md:py-2 break-all text-[#4f4f4f] text-[18px]">
@@ -144,15 +159,21 @@ const InscriptionDetails = (params: { iid: string }) => {
                 </td>
               </tr>
               <tr className="flex flex-col md:table-row py-3 space-y-0.5 ">
-                <td className="md:py-2 pr-8 whitespace-nowrap underline md:no-underline text-[#9f9f9f] text-[18px]">Inscription Fee</td>
+                <td className="md:py-2 pr-8 whitespace-nowrap underline md:no-underline text-[#9f9f9f] text-[18px] uppercase">
+                  Inscription Fee
+                </td>
                 <td className="md:py-2 break-all text-[#4f4f4f] text-[18px]">{data.genesis_fee}</td>
               </tr>
               <tr className="flex flex-col md:table-row py-3 space-y-0.5 ">
-                <td className="md:py-2 pr-8 whitespace-nowrap underline md:no-underline text-[#9f9f9f] text-[18px]">Output</td>
+                <td className="md:py-2 pr-8 whitespace-nowrap underline md:no-underline text-[#9f9f9f] text-[18px] uppercase">
+                  Output
+                </td>
                 <td className="md:py-2 break-all text-[#4f4f4f] text-[18px]">{data.output}</td>
               </tr>
               <tr className="flex flex-col md:table-row py-3 space-y-0.5">
-                <td className="md:py-2 pr-8 whitespace-nowrap underline md:no-underline text-[#9f9f9f] text-[18px]">Offset</td>
+                <td className="md:py-2 pr-8 whitespace-nowrap underline md:no-underline text-[#9f9f9f] text-[18px] uppercase">
+                  Offset
+                </td>
                 <td className="md:py-2 break-all text-[#4f4f4f] text-[18px]">{data.offset}</td>
               </tr>
             </tbody>
@@ -169,4 +190,3 @@ const InscriptionDetails = (params: { iid: string }) => {
 }
 
 export default InscriptionDetails
-

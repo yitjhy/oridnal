@@ -6,6 +6,9 @@ import Link from 'next/link'
 import { HoverCard, HoverCardContent, HoverCardTrigger } from './HoverCard'
 import { usePathname } from 'next/navigation'
 import Search from '@/components/header/search'
+import TimeAgo from 'javascript-time-ago'
+import en from 'javascript-time-ago/locale/en.json'
+TimeAgo.addDefaultLocale(en)
 
 const Header = ({ children }: { children?: React.ReactNode }) => {
   const pathname = usePathname()

@@ -34,14 +34,16 @@ const SatDetails = (params: { sid: string }) => {
               Sat Rarity
             </td>
             <td className="uppercase md:py-2 break-all text-[#4f4f4f] text-[18px]">
-              <div className="inline-block bg-[#f5bc00] px-[18px] py-[3px] text-[#4f4f4f] text-[18px]">{data.rarity}</div>
+              <div className="inline-block bg-[#f5bc00] px-[18px] py-[3px] text-[#4f4f4f] text-[18px]">
+                {data.rarity}
+              </div>
             </td>
           </tr>
           <tr className="flex flex-col md:table-row py-4 space-y-0.5">
             <td className="uppercase md:py-3 px-2 pr-20 whitespace-nowrap underline md:no-underline text-[#9f9f9f] text-[18px]">
               Name
             </td>
-            <td className="uppercase md:py-2 break-all text-[#4f4f4f] text-[18px]">{data.name}</td>
+            <td className="md:py-2 break-all text-[#4f4f4f] text-[18px]">{data.name}</td>
           </tr>
           <tr className="flex flex-col md:table-row py-4 space-y-0.5">
             <td className="uppercase md:py-3 px-2 pr-20 whitespace-nowrap underline md:no-underline text-[#9f9f9f] text-[18px]">
