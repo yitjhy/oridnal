@@ -16,11 +16,19 @@ const columns: TableColumn<TLiveMintingItem>[] = [
     key: 'number',
     render: (data) => (
       <div className="flex gap-x-[1rem]">
-        <img
-          alt="img"
-          className="w-[40px] h-[40px] bg-[#3498DB]"
-          src="https://api.hiro.so/ordinals/v1/inscriptions/0bcf4ff230ceca62485d76eb498714671c4f5434523a83e23dc3a42ab4b4c8dei0/content"
-        />
+        {/*<img*/}
+        {/*  alt="img"*/}
+        {/*  className="w-[40px] h-[40px] bg-[#3498DB]"*/}
+        {/*  src="https://api.hiro.so/ordinals/v1/inscriptions/0bcf4ff230ceca62485d76eb498714671c4f5434523a83e23dc3a42ab4b4c8dei0/content"*/}
+        {/*/>*/}
+        <div className="w-[40px] h-[40px]">
+          <iframe
+            className="w-full aspect-square overflow-hidden mx-auto"
+            sandbox="allow-scripts"
+            loading="lazy"
+            src={`/preview/${data?.inscription_id}`}
+          />
+        </div>
         <div>
           <Link href={`/inscription/${data?.inscription_id}`}>Inscription#{data?.number}</Link>
           <div className="text-[12px] text-[#9F9F9F] flex gap-x-[0.5rem]">
