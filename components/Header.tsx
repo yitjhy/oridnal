@@ -13,8 +13,8 @@ TimeAgo.addDefaultLocale(en)
 const Header = ({ children }: { children?: React.ReactNode }) => {
   const pathname = usePathname()
   return (
-    <header className="flex justify-between px-6 md:px-10 py-8 w-full max-w-[88rem] mx-auto">
-      <div className="flex gap-x-[20px]">
+    <header className="flex justify-between px-[5rem] py-8 w-full  mx-auto">
+      <div className="flex gap-x-[45px]">
         <a href="/">
           <img src="/logo2.svg" alt="Hiro Ordinals Beta" />
         </a>
