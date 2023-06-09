@@ -77,14 +77,14 @@ const Header = ({ children }: { children?: React.ReactNode }) => {
         >
           Explore
         </Link>
-        <Link
-          href="/block-chain"
-          className={`px-[1.5rem] py-2.5 rounded-md ${
-            pathname === '/block-chain' ? 'text-[#F5BD07]' : 'text-[#656565]'
-          } hover:text-[#F5BD07]`}
-        >
-          Blockchain
-        </Link>
+        {/*<Link*/}
+        {/*  href="/block-chain"*/}
+        {/*  className={`px-[1.5rem] py-2.5 rounded-md ${*/}
+        {/*    pathname === '/block-chain' ? 'text-[#F5BD07]' : 'text-[#656565]'*/}
+        {/*  } hover:text-[#F5BD07]`}*/}
+        {/*>*/}
+        {/*  Blockchain*/}
+        {/*</Link>*/}
       </div>
     </header>
   )

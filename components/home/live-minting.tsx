@@ -22,7 +22,7 @@ const columns: TableColumn<TLiveMintingItem>[] = [
           src="https://api.hiro.so/ordinals/v1/inscriptions/0bcf4ff230ceca62485d76eb498714671c4f5434523a83e23dc3a42ab4b4c8dei0/content"
         />
         <div>
-          <div>Inscription#{data?.number}</div>
+          <Link href={`/inscription/${data?.inscription_id}`}>Inscription#{data?.number}</Link>
           <div className="text-[12px] text-[#9F9F9F] flex gap-x-[0.5rem]">
             <div className="uppercase">{data?.content_type.slice(0, 4)}</div>
             <div className="border-l-[1px] scale-y-50" />

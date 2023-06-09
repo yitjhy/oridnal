@@ -19,6 +19,7 @@ export type TLiveMintingItem = {
   to_address: string
   total: number
   tx_id: string
+  inscription_id: string
 }
 export type TTransicationItem = {
   block_height: number
@@ -32,4 +33,5 @@ export type TTransicationItem = {
   to_address: string
   total: number
   tx_id: string
+  inscription_id: string
 }
