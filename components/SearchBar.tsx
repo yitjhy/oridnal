@@ -266,7 +266,7 @@ const SearchBar = () => {
         </div>
       </div>
       <div
-        className={`absolute w-full p-4 border-solid border border-[#767676] w-[500px] bg-[#E6E6E6] hover:border-[#F5BC00] ${
+        className={`absolute w-full p-4 border-solid border border-[#767676] bg-[#E6E6E6] hover:border-[#F5BC00] ${
           isFocused ? 'border-[#F5BC00]' : ''
         }`}
       >
