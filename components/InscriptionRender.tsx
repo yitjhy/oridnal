@@ -1,29 +1,24 @@
-import { API_URL } from "../lib/constants";
-import { InscriptionResponse } from "../lib/types";
-import Iframe from "./Iframe";
+import { InscriptionResponse } from '@/lib/types'
+import Iframe from './Iframe'
+import InscriptionRenderImage from './InscriptionRenderImage'
+import InscriptionRenderJson, { WithContentJson } from './InscriptionRenderJson'
+import InscriptionRenderText from './InscriptionRenderText'
 
-const InscriptionRender = ({
-  inscription,
-}: {
-  inscription: InscriptionResponse;
-}) => {
-  if (inscription.content_type.startsWith("image/")) {
-    // todo: background image with hidden semantic element better?
-    return (
-      <div className="w-full h-full flex justify-center items-center bg-[#F2F0ED]">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          alt={`Inscription #${inscription.number}`}
-          src={`${API_URL}/inscriptions/${inscription.id}/content`}
-          style={{ imageRendering: "pixelated" }}
-          width="100%"
-          height="100%"
-        />
-      </div>
-    );
+const InscriptionRender = (props: { inscription: InscriptionResponse; className?: string }) => {
+  if (props.inscription.content_type.startsWith('image/')) {
+    return <InscriptionRenderImage {...props} />
   }
 
-  return <Iframe src={`/preview/${inscription.id}`} />;
-};
+  if (props.inscription.content_type.startsWith('application/json')) {
+    return WithContentJson(props, InscriptionRenderJson)
+  }
 
-export default InscriptionRender;
+  if (props.inscription.content_type.startsWith('text/')) {
+    // also handles json parseable content from plain text
+    return <InscriptionRenderText {...props} />
+  }
+
+  return <Iframe {...props} src={`/preview/${props.inscription.id}`} />
+}
+
+export default InscriptionRender
