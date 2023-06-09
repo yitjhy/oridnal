@@ -95,7 +95,7 @@ const columns: TableColumn<TTransicationItem>[] = [
     name: 'Time',
     sortable: false,
     key: 'block_time',
-    render: (data) => <ReactTimeAgo date={data?.block_time * 1000} locale="en-US" />,
+    render: (data) => <ReactTimeAgo date={data?.block_time} locale="en-US" />,
   },
 ]
 
