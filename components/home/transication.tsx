@@ -53,7 +53,7 @@ const columns: TableColumn<TTransicationItem>[] = [
         {/*/>*/}
         <div className="w-[40px] h-[40px]">
           <iframe
-            className="w-full aspect-square overflow-hidden mx-auto"
+            className="w-full aspect-square overflow-hidden"
             sandbox="allow-scripts"
             loading="lazy"
             src={`/preview/${data?.inscription_id}`}
