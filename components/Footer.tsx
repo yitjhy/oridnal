@@ -1,7 +1,8 @@
 import { GitHubLogoIcon, TwitterLogoIcon } from '@radix-ui/react-icons'
 // import { useRouter } from 'next/router'
 import Link from 'next/link'
-import { Tooltip } from 'antd'
+// import { Tooltip } from 'antd'
+import styled from 'styled-components'
 
 const Footer = () => {
   // const router = useRouter()
@@ -35,16 +36,24 @@ const Footer = () => {
               <Link href="/">Home</Link>
               <Link href="/explore">Explore</Link>
             </div>
-            <div className="grid gap-y-[0.5rem]">
-              <Tooltip title="Cooming Soon">
-                <span>API Documentation</span>
-              </Tooltip>
-            </div>
-            <div className="grid gap-y-[0.5rem]">
-              <Tooltip title="Cooming Soon">
-                <span>Developer APIs</span>
-              </Tooltip>
-            </div>
+            <HoverWrapper>
+              <span className="trigger">API Documentation</span>
+              <div className="hover-wrapper">Cooming Soon</div>
+            </HoverWrapper>
+            <HoverWrapper>
+              <span className="trigger">Developer APIs</span>
+              <div className="hover-wrapper">Cooming Soon</div>
+            </HoverWrapper>
+            {/*<div className="grid gap-y-[0.5rem]">*/}
+            {/*  <Tooltip title="Cooming Soon">*/}
+            {/*    <span>API Documentation</span>*/}
+            {/*  </Tooltip>*/}
+            {/*</div>*/}
+            {/*<div className="grid gap-y-[0.5rem]">*/}
+            {/*  <Tooltip title="Cooming Soon">*/}
+            {/*    <span>Developer APIs</span>*/}
+            {/*  </Tooltip>*/}
+            {/*</div>*/}
           </div>
         </div>
       </div>
@@ -52,4 +61,29 @@ const Footer = () => {
   )
 }
 
+const HoverWrapper = styled.div`
+  position: relative;
+  cursor: pointer;
+  &:hover {
+    .hover-wrapper {
+      opacity: 1;
+    }
+  }
+  .trigger {
+  }
+  .hover-wrapper {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translate(-50%, -100%);
+    opacity: 0;
+    z-index: 10;
+    width: 124px;
+    background: black;
+    padding: 5px 10px;
+    color: #fff;
+    border-radius: 3px;
+    transition: all linear 0.15s;
+  }
+`
 export default Footer
