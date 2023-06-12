@@ -31,11 +31,10 @@ const InscriptionRenderJson = (props: { inscription: InscriptionResponse; conten
     ?.replace(/^[\{\}]/gm, '')
     ?.replace(/[\{\}]*,*$/gm, '')
     ?.replace(/\n\s*\n/gm, '\n')
-    ?.replace(/(?<!\\)"/g, '') // remove all unescaped double quotes
-    ?.replace(/(?<!\\)\\/g, '') // remove all unescaped escape characters
+    // ?.replace(/(?<!\\)"/g, '') // remove all unescaped double quotes
+    // ?.replace(/(?<!\\)\\/g, '') // remove all unescaped escape characters
     ?.replace(/\n\s/g, '\n') // replace escaped newlines with newlines
     ?.trim()
-
   let badge = props.content?.p ?? props.content?.protocol?.name ?? props.content?.protocol
   badge = badge?.replace(/\-/g, '')
 

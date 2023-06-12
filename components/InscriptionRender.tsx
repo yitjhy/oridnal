@@ -7,7 +7,6 @@ import { usePathname } from 'next/navigation'
 
 const InscriptionRender = (props: { inscription: InscriptionResponse; className?: string }) => {
   const pathname = usePathname()
-  console.log(pathname)
   if (props.inscription.content_type.startsWith('image/')) {
     return <InscriptionRenderImage {...props} />
   }

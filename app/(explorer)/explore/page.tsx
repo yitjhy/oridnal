@@ -224,7 +224,7 @@ const Page = () => {
                 </div>
                 <hr className="border-dashed border-neutral-300" />
                 <div className="uppercase flex gap-x-[10px]">
-                  {[...fSelected].map((item) => {
+                  {[...fSelected]?.map((item) => {
                     return (
                       <FilterTag
                         key={item}
@@ -235,7 +235,7 @@ const Page = () => {
                       />
                     )
                   })}
-                  {[...rSelected].map((item) => {
+                  {[...rSelected]?.map((item) => {
                     return (
                       <FilterTag
                         key={item}

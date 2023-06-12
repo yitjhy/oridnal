@@ -15,7 +15,6 @@ const InscriptionRenderText = (props: { inscription: InscriptionResponse; classN
 
   if (error) return <div>Error loading inscription content. {error?.message}</div>
   if (!data || isLoading) return <div>Loading...</div>
-
   return pipe(
     tryCatch(() => JSON.parse(data)),
     match(
