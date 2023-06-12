@@ -60,7 +60,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {/*  />*/}
         {/*)}*/}
         <Script async src="https://www.googletagmanager.com/gtag/js?id=G-VG49QP1BW1" />
-        <Script dangerouslySetInnerHTML={{ __html: analyze }} />
+        <Script id="google-analytics" strategy="afterInteractive" dangerouslySetInnerHTML={{ __html: analyze }} />
         {/* <Script id="google-analytics" strategy="afterInteractive">
           {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
