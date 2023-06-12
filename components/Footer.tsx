@@ -2,7 +2,8 @@ import { GitHubLogoIcon, TwitterLogoIcon } from '@radix-ui/react-icons'
 // import { useRouter } from 'next/router'
 import Link from 'next/link'
 // import { Tooltip } from 'antd'
-import styled from 'styled-components'
+// import styled from 'styled-components'
+import './footer.css'
 
 const Footer = () => {
   // const router = useRouter()
@@ -36,14 +37,14 @@ const Footer = () => {
               <Link href="/">Home</Link>
               <Link href="/explore">Explore</Link>
             </div>
-            <HoverWrapper>
+            <div className="hoverWrapper">
               <span className="trigger">API Documentation</span>
-              <div className="hover-wrapper">Cooming Soon</div>
-            </HoverWrapper>
-            <HoverWrapper>
+              <div className="hover-wrapper-content">Cooming Soon</div>
+            </div>
+            <div className="hoverWrapper">
               <span className="trigger">Developer APIs</span>
-              <div className="hover-wrapper">Cooming Soon</div>
-            </HoverWrapper>
+              <div className="hover-wrapper-content">Cooming Soon</div>
+            </div>
             {/*<div className="grid gap-y-[0.5rem]">*/}
             {/*  <Tooltip title="Cooming Soon">*/}
             {/*    <span>API Documentation</span>*/}
@@ -61,29 +62,29 @@ const Footer = () => {
   )
 }
 
-const HoverWrapper = styled.div`
-  position: relative;
-  cursor: pointer;
-  &:hover {
-    .hover-wrapper {
-      opacity: 1;
-    }
-  }
-  .trigger {
-  }
-  .hover-wrapper {
-    position: absolute;
-    left: 50%;
-    top: 0;
-    transform: translate(-50%, -100%);
-    opacity: 0;
-    z-index: 10;
-    width: 124px;
-    background: black;
-    padding: 5px 10px;
-    color: #fff;
-    border-radius: 3px;
-    transition: all linear 0.15s;
-  }
-`
+// const HoverWrapper = styled.div`
+//   position: relative;
+//   cursor: pointer;
+//   &:hover {
+//     .hover-wrapper {
+//       opacity: 1;
+//     }
+//   }
+//   .trigger {
+//   }
+//   .hover-wrapper {
+//     position: absolute;
+//     left: 50%;
+//     top: 0;
+//     transform: translate(-50%, -100%);
+//     opacity: 0;
+//     z-index: 10;
+//     width: 124px;
+//     background: black;
+//     padding: 5px 10px;
+//     color: #fff;
+//     border-radius: 3px;
+//     transition: all linear 0.15s;
+//   }
+// `
 export default Footer
