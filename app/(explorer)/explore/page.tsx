@@ -170,7 +170,7 @@ const Page = () => {
           <div className="hidden md:block ml-6 text-xs whitespace-nowrap min-w-[210px]">
             <div className="space-y-2">
               <div className="py-1 uppercase">Filter</div>
-              <hr className="border-dashed border-neutral-300" />
+              <hr className="border-neutral-300" />
             </div>
             <div className="mt-5" />
             <Filter
@@ -222,9 +222,9 @@ const Page = () => {
                   <div />
                   <Sort sortKey={sortKey} updateSort={updateSort} />
                 </div>
-                <hr className="border-dashed border-neutral-300" />
+                <hr className="border-neutral-300" />
                 <div className="uppercase flex gap-x-[10px]">
-                  {[...fSelected].map((item) => {
+                  {[...fSelected]?.map((item) => {
                     return (
                       <FilterTag
                         key={item}
@@ -235,7 +235,7 @@ const Page = () => {
                       />
                     )
                   })}
-                  {[...rSelected].map((item) => {
+                  {[...rSelected]?.map((item) => {
                     return (
                       <FilterTag
                         key={item}
