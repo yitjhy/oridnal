@@ -11,7 +11,7 @@ const Footer = () => {
         <div className="w-full  flex justify-between bg-[#343434]">
           <div className="p-4 sm:p-6 md:p-12 pb-8 flex flex-col">
             <a href="/">
-              <img src="/logo2.svg" alt="Hiro Ordinals Beta" />
+              <img src="/icon3.svg" alt="Hiro Ordinals Beta" />
             </a>
             {/* todo: link chainhooks */}
             <div className="mt-10 flex flex-col md:flex-row justify-between text-center text-xs text-neutral-300 space-y-4 md:space-y-0">

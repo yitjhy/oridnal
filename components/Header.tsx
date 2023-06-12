@@ -16,7 +16,7 @@ const Header = ({ children }: { children?: React.ReactNode }) => {
     <header className="flex justify-between px-[5rem] py-8 w-full  mx-auto">
       <div className="flex gap-x-[45px]">
         <a href="/">
-          <img src="/logo2.svg" alt="Hiro Ordinals Beta" />
+          <img src="/icon3.svg" alt="Hiro Ordinals Beta" />
         </a>
         {pathname !== '/' && (
           <div className="w-[400px]">
