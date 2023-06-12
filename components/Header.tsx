@@ -19,7 +19,7 @@ const Header = ({ children }: { children?: React.ReactNode }) => {
           <img src="/icon3.svg" alt="Hiro Ordinals Beta" />
         </a>
         {pathname !== '/' && (
-          <div className="w-[400px]">
+          <div className="w-[400px] hidden sm:block">
             <Search />
           </div>
         )}
