@@ -5,10 +5,10 @@ import Script from 'next/script'
 export async function generateMetadata() {
   return {
     openGraph: {
-      title: 'Ordinals — Hiro', // todo: add inscription number
+      title: 'Ordinals', // todo: add inscription number
       description: 'The Inscription Explorer of Bitcoin.',
       url: 'https://ordinals.hiro.so',
-      siteName: 'Ordinals — Hiro',
+      siteName: 'Ordinals',
       images: [
         {
           url: '/og-image.png',
