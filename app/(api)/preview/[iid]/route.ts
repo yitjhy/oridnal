@@ -97,8 +97,7 @@ function htmlWithFont(children: string) {
         <style>
           @font-face {
             font-family: "Aeonik Fono";
-            src: url("https://alphaassets.hiro.so/AeonikFono-Regular.woff2") format("woff2"),
-              url("https://alphaassets.hiro.so/AeonikFono-Regular.woff") format("woff");
+            src: url("/font/ebrima.ttf") format("woff2");
             font-weight: normal;
             font-style: normal;
             font-display: block;
@@ -111,7 +110,7 @@ function htmlWithFont(children: string) {
           body {
             min-height: 100vh;
             image-rendering: pixelated;
-            font-family: "Aeonik Fono", sans-serif;
+            /*font-family: "Aeonik Fono", sans-serif;*/
           }
           html {
             height: 100%;
