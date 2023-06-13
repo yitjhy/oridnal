@@ -180,32 +180,32 @@ const Page = () => {
               onClick={(t) => toggle('f', t)}
               selected={fSelected}
             />
-            <hr className="my-3 border-dashed border-neutral-200" />
+            <hr className="my-3 border-solid border-[#e5e7eb]" />
             <Filter name="Rarity" options={rParams} onClick={(t) => toggle('r', t)} selected={rSelected} />
-            <hr className="my-3 border-dashed border-neutral-200" />
+            <hr className="my-3 border-solid border-[#e5e7eb]" />
             {/* todo: clear date filters unapplied state when clear is called (e.g. via key prop) */}
             <DateFilter name="Inscription Date" start={dStart} end={dEnd} onApply={(f, t) => updateRange('d', f, t)} />
-            <hr className="my-3 border-dashed border-neutral-200" />
+            <hr className="my-3 border-solid border-[#e5e7eb]" />
             <RangeFilter
               name="Inscription Number"
               start={nStart}
               end={nEnd}
               onApply={(f, t) => updateRange('n', f, t)}
             />
-            <hr className="my-3 border-dashed border-neutral-200" />
+            <hr className="my-3 border-solid border-[#e5e7eb]" />
             <RangeFilter
               name="Inscription Height"
               start={hStart}
               end={hEnd}
               onApply={(f, t) => updateRange('h', f, t)}
             />
-            <hr className="my-3 border-dashed border-neutral-200" />
+            <hr className="my-3 border-solid border-[#e5e7eb]" />
             <RangeFilter name="Coinbase Height" start={cStart} end={cEnd} onApply={(f, t) => updateRange('c', f, t)} />
 
             {/* todo: inscription number filter */}
             {/* todo: period filter */}
 
-            <hr className="my-3 border-dashed border-neutral-200" />
+            <hr className="my-3 border-solid border-[#e5e7eb]" />
             <div className="my-6" />
             <button
               className="block w-full px-4 py-2 border text-neutral-600 rounded-[4px] uppercase ease-linear duration-150 hover:-translate-y-[2px] hover:-translate-x-[2px]"
