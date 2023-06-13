@@ -6,7 +6,7 @@ export async function generateMetadata() {
   return {
     openGraph: {
       title: 'Ordinals — Hiro', // todo: add inscription number
-      description: 'An Ordinals Explorer built using Hiro APIs and tools',
+      description: 'The Inscription Explorer of Bitcoin.',
       url: 'https://ordinals.hiro.so',
       siteName: 'Ordinals — Hiro',
       images: [
