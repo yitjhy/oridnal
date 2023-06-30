@@ -9,43 +9,17 @@ import Skeleton from '@/components/skeleton'
 import Link from 'next/link'
 import ReactTimeAgo from 'react-time-ago'
 // import { mimeTypes } from '@/components/GalleryFull'
-
-const mimeTypes: Record<string, string[]> = {
-  // Safe Images https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types#image_types
-  image: [
-    'image/apng',
-    'image/avif',
-    'image/gif',
-    'image/jpg',
-    'image/jpeg',
-    'image/png',
-    'image/svg+xml',
-    'image/webp',
-  ],
-  audio: ['audio/midi', 'audio/mod', 'audio/mpeg'],
-  video: ['video/mp4', 'video/webm'],
-  text: ['text/html', 'text/markdown', 'text/plain'],
-  binary: ['application/epub+zip', 'application/json', 'application/pdf', 'application/pgp-signature'],
-}
-const getFileType = (content_type: string) => {
-  let res: string = ''
-  Object.keys(mimeTypes).filter((key) => {
-    mimeTypes[key].filter((type) => {
-      if (content_type.includes(type)) {
-        res = key
-      }
-    })
-  })
-  return res
-}
+import MobileListItem from './mobile-list-item'
+import { getFileType } from '@/components/home/utils'
 
 const columns: TableColumn<TTransicationItem>[] = [
   {
     name: 'Inscriptions',
     sortable: false,
     key: 'number',
+    align: 'left',
     render: (data) => (
-      <div className="flex gap-x-[1rem]">
+      <div className="flex gap-x-[1rem] ml-[12px]">
         {/*<img*/}
         {/*  alt="img"*/}
         {/*  className="w-[40px] h-[40px] bg-[#3498DB]"*/}
@@ -60,7 +34,9 @@ const columns: TableColumn<TTransicationItem>[] = [
           />
         </div>
         <div>
-          <Link href={`/inscription/${data?.inscription_id}`}>Inscription#{data?.number}</Link>
+          <Link href={`/inscription/${data?.inscription_id}`} className="text-[#3498DB] cursor-pointer">
+            Inscription#{data?.number}
+          </Link>
           <div className="text-[12px] text-[#9F9F9F] flex gap-x-[0.5rem]">
             <div className="uppercase">{getFileType(data?.content_type || '')}</div>
             <div className="border-l-[1px] scale-y-50" />
@@ -76,13 +52,13 @@ const columns: TableColumn<TTransicationItem>[] = [
     key: 'from_address',
     render: (data) => (
       <div>
-        <div>
+        <div style={{ display: 'flex', columnGap: '5px' }}>
           From{'  '}
           <Link href={`/address/${data?.from_address}`} className="text-[#3498DB] cursor-pointer">
             {`${data?.from_address.slice(0, 6)}...${data?.from_address.slice(data?.from_address.length - 6)}`}
           </Link>
         </div>
-        <div>
+        <div style={{ display: 'flex', columnGap: '5px' }}>
           To{'     '}
           <Link href={`/address/${data?.to_address}`} className="text-[#3498DB] cursor-pointer">
             {`${data?.to_address.slice(0, 6)}...${data?.to_address.slice(data?.to_address.length - 6)}`}
@@ -108,6 +84,15 @@ const Transication = () => {
   if (!data?.data) {
     return <Skeleton table />
   }
-  return <div>{previews && <Table data={previews.slice(0, 6)} columns={columns} />}</div>
+  return (
+    <div>
+      <div className="hidden sm:block">{previews && <Table data={previews.slice(0, 6)} columns={columns} />}</div>
+      <div className="grid sm:hidden  gap-y-[10px]">
+        {previews.slice(0, 6).map((item, index) => {
+          return <MobileListItem key={index} data={item} />
+        })}
+      </div>
+    </div>
+  )
 }
 export default Transication

@@ -221,10 +221,7 @@ const SearchBar = () => {
 
   return (
     <div
-      className={cn(
-        'search-bar-container relative text-neutral-400 transition-colors h-12 mb-5',
-        isFocused && 'focused'
-      )}
+      className={cn('search-bar-container relative text-neutral-400 transition-colors h-12', isFocused && 'focused')}
     >
       <div className="search-bar-box absolute w-full p-[1px] bg-gradient-to-b from-neutral-0 to-neutral-200 rounded-[5px]">
         <div

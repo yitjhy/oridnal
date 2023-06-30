@@ -18,7 +18,7 @@ const InscriptionRender = (props: { inscription: InscriptionResponse; className?
   if (props.inscription.content_type.startsWith('text/')) {
     // also handles json parseable content from plain text
     return (
-      <div className={`${pathname?.includes('inscription') ? 'p-[20px]' : ''}`}>
+      <div className={`${pathname?.includes('inscription') ? 'p-0 sm:p-[20px]' : ''}`}>
         <InscriptionRenderText {...props} />
       </div>
     )

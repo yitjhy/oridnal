@@ -8,15 +8,20 @@ import { usePathname } from 'next/navigation'
 import Search from '@/components/header/search'
 import TimeAgo from 'javascript-time-ago'
 import en from 'javascript-time-ago/locale/en.json'
+// import useMobile from '@/hooks/useMobile'
 TimeAgo.addDefaultLocale(en)
 
 const Header = ({ children }: { children?: React.ReactNode }) => {
+  // const isMobile = useMobile()
   const pathname = usePathname()
   return (
-    <header className="flex justify-between px-[5rem] py-8 w-full  mx-auto">
-      <div className="flex gap-x-[45px]">
-        <a href="/">
+    <header className="flex justify-between px-[5rem] py-4 sm:py-8 w-full  mx-auto border-b border-[#e7e7e7] border-solid sm:border-b-0">
+      <div className="flex gap-x-[45px] justify-center w-full sm:w-[auto] sm:justify-center">
+        <a href="/" className="hidden sm:block">
           <img src="/icon3.svg" alt="Hiro Ordinals Beta" />
+        </a>
+        <a href="/" className="block sm:hidden">
+          <img src="/icon-mobile.svg" alt="Hiro Ordinals Beta" width={44} height={44} />
         </a>
         {pathname !== '/' && (
           <div className="w-[400px] hidden sm:block">

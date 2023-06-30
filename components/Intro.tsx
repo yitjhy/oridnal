@@ -20,7 +20,7 @@ const Intro = () => {
       {/*    <span className="opacity-0">placeholder</span>*/}
       {/*  )}*/}
       {/*</div>*/}
-      <div className="text-xl md:text-2xl text-[#4F4F4F]">The Inscription Explorer of Bitcoin</div>
+      <div className="text-[18px] md:text-[22px] text-[#4F4F4F] font-bold">The Inscription Explorer of Bitcoin</div>
     </div>
   )
 }

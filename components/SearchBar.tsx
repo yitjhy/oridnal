@@ -228,7 +228,7 @@ const SearchBar = () => {
     >
       <div className="search-bar-box absolute w-full p-[1px] bg-gradient-to-b from-neutral-0 to-neutral-200 rounded-[5px]">
         <div
-          className={`bg-[#E6E6E6] m-0 p-4 mt-9  w-full text-neutral-400 transition-colors rounded-[4px] ${
+          className={`bg-[#E6E6E6] m-0 p-4 mt-9 border border-t-0 border-[#F5BC00]  w-full text-neutral-400 transition-colors rounded-[4px] ${
             search.length && groupedResult && isFocused ? 'block' : 'hidden'
           }`}
         >
@@ -266,12 +266,14 @@ const SearchBar = () => {
         </div>
       </div>
       <div
-        className={`absolute w-full p-4 border-solid border border-[#767676] bg-[#E6E6E6] hover:border-[#F5BC00] ${
+        className={`absolute w-full  border-solid border border-[#767676] bg-[#E6E6E6] hover:border-[#F5BC00] ${
           isFocused ? 'border-[#F5BC00]' : ''
         }`}
       >
         <div className="flex gap-4">
-          <SearchIcon className="text-neutral-300" />
+          <div className="w-[62px] h-[50px] bg-[#F5BC00] flex items-center justify-center">
+            <SearchIcon className="text-neutral-300" />
+          </div>
           <input
             ref={searchInputRef}
             className="w-full outline-none font-normal placeholder:text-neutral-300 bg-[#E6E6E6]"

@@ -49,15 +49,20 @@ const InscriptionDetails = (params: { iid: string }) => {
         {/*    />*/}
         {/*  </div>*/}
         {/*</div>*/}
+        <h2 className="block sm:hidden text-[26px] text-center mb-[28px] leading-[33px] font-[700] text-[#4f4f4f]">
+          Inscription #{data.number}
+        </h2>
         <div className="flex-auto basis-[384px]">
-          <div className="mx-auto mb-16 max-w-[65%] overflow-hidden rounded-md sm:max-w-[55%] md:mb-0 md:w-0 md:min-w-full md:max-w-none lg:border ">
+          <div className="mx-auto mb-4 sm:mb-16  overflow-hidden rounded-md sm:max-w-[55%] md:mb-0 md:w-0 md:min-w-full md:max-w-none lg:border ">
             <InscriptionRender className="overflow-hidden rounded-md" inscription={data} />
           </div>
         </div>
 
         <div className="flex-grow">
-          <h2 className="text-[26px] leading-[33px] font-[700] text-[#4f4f4f]">Inscription #{data.number}</h2>
-          <table style={{ marginTop: '37px' }} className="w-full text-sm border-collapse">
+          <h2 className="hidden sm:block text-[26px] leading-[33px] font-[700] text-[#4f4f4f]">
+            Inscription #{data.number}
+          </h2>
+          <table className="w-full text-sm border-collapse mt-0 sm:mt-[37px]">
             <tbody>
               <tr className="flex flex-col md:table-row py-3 space-y-0.5">
                 <td className="md:py-2 pr-8 whitespace-nowrap underline md:no-underline text-[#9f9f9f] text-[14px] uppercase">

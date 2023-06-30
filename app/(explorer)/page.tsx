@@ -2,9 +2,9 @@
 
 import Link from 'next/link'
 
-import CtaLink from '../../components/CtaLink'
+// import CtaLink from '../../components/CtaLink'
 import Footer from '../../components/Footer'
-import GalleryPreview from '../../components/GalleryPreview'
+// import GalleryPreview from '../../components/GalleryPreview'
 import Header from '../../components/Header'
 import Intro from '../../components/Intro'
 import SearchBar from '../../components/SearchBar'
@@ -16,15 +16,15 @@ export default function Home() {
   return (
     <>
       <Header />
-      <main className="flex flex-col justify-between items-center min-h-screen w-[85rem] mx-auto space-y-8 pt-[7rem]">
+      <main className="flex flex-col justify-between items-center min-h-screen  mx-auto space-y-8 pt-[7rem]">
         {/* Intro Section */}
-        <div className="w-[62rem]  space-y-3 mb-[40px]">
+        <div className="space-y-3 mb-[40px] w-[90%]">
           {/* todo: wrap in motion */}
           <Intro />
           <div>
             <SearchBar />
             <Link
-              href="/explore"
+              href={'/explore'}
               className="mt-4 text-neutral-300 flex justify-center ease-linear duration-150 hover:-translate-y-[2px] hover:-translate-x-[2px]"
             >
               or explore all
@@ -33,19 +33,19 @@ export default function Home() {
         </div>
         <Statistic />
         {/* Gallery Section */}
-        <div className="w-full flex  gap-10">
-          <div className="w-1/2">
-            <p className="mt-20 text-sm mb-2 font-bold flex gap-x-[8px] ml-[8px]">
-              <img src="/minting.svg" alt="minting" />
+        <div className="w-full grid  gap-10 md:grid-cols-2 px-[10px]">
+          <div>
+            <p className="mt-3 sm:mt-20 text-sm mb-2 font-bold flex gap-x-[8px]  items-center">
+              <img src={'/minting.svg'} alt="minting" />
               Live Minting
             </p>
             {/*<div className="mx-auto mt-3 mb-4 h-12 w-0 border border-dashed border-l-black" />*/}
             <LiveMinting />
             {/*<GalleryPreview />*/}
           </div>
-          <div className="w-1/2">
-            <p className="mt-20 text-sm mb-2 font-bold flex gap-x-[8px] ml-[8px]">
-              <img src="/transication.svg" alt="transication" />
+          <div>
+            <p className="sm:mt-20 text-sm mb-2 font-bold flex gap-x-[8px] items-center">
+              <img src={'/transication.svg'} alt="transactions" />
               Latest Transactions
             </p>
             {/*<div className="mx-auto mt-3 mb-4 h-12 w-0 border border-dashed border-l-black" />*/}

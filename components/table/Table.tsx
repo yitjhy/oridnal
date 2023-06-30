@@ -168,6 +168,7 @@ const TableRow = styled.li<{ gap?: string; clickable?: boolean }>`
     box-shadow: 0 4px 10px rgba(114, 175, 120, 0.1);
   }
   border-bottom: solid 1px #e2e2e2;
+  column-gap: 2rem;
 `
 const Td = styled.div<{ width?: string; flex?: number; align?: TableAlign }>`
   height: 100%;
